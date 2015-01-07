@@ -48,6 +48,12 @@
 $active_group = 'default';
 $active_record = TRUE;
 
+$db_config = array(
+				1 => array('hostname'=>'127.0.0.1', 'port'=>6039, 'username'=>'kChina', 'password'=>'kChinapassword')
+			);
+
+$db['default'] = $db_config[SERVERID];
+
 $db['default']['hostname'] = 'localhost';
 $db['default']['username'] = '';
 $db['default']['password'] = '';
