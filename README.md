@@ -2,7 +2,7 @@ kChina.today
 =====
 ##kChina.today
 
-kChina.today,2015年1月份成立
+kChina.today,2015年1月份
 
 kChina.today暂时没有上线,使用了轻量的CI框架,暂时处于开发阶段,如果你想加入那么请git clone到你的本机.
 kChina.today使用HTML5,css3,jQuery,php5,redis,macache
