@@ -5,7 +5,8 @@ kChina.today
 kChina.today,2015年1月份
 
 kChina.today暂时没有上线,使用了轻量的CI框架,暂时处于开发阶段,如果你想加入那么请git clone到你的本机.
-kChina.today使用HTML5,css3,jQuery,php5,redis,macache
+
+kChina.today使用HTML5,css3,jQuery,jQuery.easing,php5,redis,macache
 
 ##kChina.today配置
 如果您想在本级开发kCina.today，您需要Php,sql,apache(nginx)环境，使用git clone，将程序clone到你本机的工作目录
