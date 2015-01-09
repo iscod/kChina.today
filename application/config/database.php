@@ -54,9 +54,6 @@ $db_config = array(
 
 $db['default'] = $db_config[SERVERID];
 
-$db['default']['hostname'] = 'localhost';
-$db['default']['username'] = '';
-$db['default']['password'] = '';
 $db['default']['database'] = '';
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
