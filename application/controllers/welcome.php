@@ -23,11 +23,14 @@ class Welcome extends KC_Controller {
 	}
 
 	public function load() {
+		$page_info = array();
+		$user_info = array();
 		$data = array(
 			'page_info' => $page_info,
-			'user_info' => $user_info
+			'user_info' => $user_info, 
+			'server_id' => SERVERID
 		);
-		$this->load->view('welcome');
+		$this->load->view('welcome', $data);
 	}
 }
 

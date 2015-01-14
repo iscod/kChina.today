@@ -3,8 +3,9 @@
 <head>
 <title>kchina
 </title>
-<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js"></script>
+<script type="text/javascript" src="/js/jquery.min.js"></script>
 <script type="text/javascript" src="/js/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="js/lesscss.js"></script>
 <script type="text/javascript">
 function curve_animate(top) {
 
