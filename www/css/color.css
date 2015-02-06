@@ -1,0 +1,70 @@
+body.login{
+	background: #f1f1f1;
+}
+a,button,p{
+	margin: 0;
+	padding: 0;
+}
+p{
+	line-height: 1.5;
+}
+/*input public*/
+.input{
+	border-color: #ddd;
+	box-shadow: inset 0 1px 2px rgba(0,0,0,.07);
+	border-width: 1px;
+	border-style: solid;
+	color: #333;
+	outline: 0;
+	@font-face: normal normal normal 13.3333330154419px/normal Arial;
+	text-rendering: auto;
+}
+.input,.pwd input{
+	font-size: 24px;
+	background: #fbfbfb;
+	font-size: 24px;
+	line-height: 1;
+	width: 100%;
+	padding: 3px;
+	margin: 2px 6px 16px 0;
+}
+/*login id*/
+.login h1{
+	text-align: center;
+}
+#loginform {
+	background: #fff;
+	box-shadow: 0 1px 3px rgba(0,0,0,.13);
+}
+.login{
+	width: 320px;
+	padding: 8% 0 0;
+	margin: auto;
+}
+.login bookmark-label {
+color: #777;
+font-size: 14px;
+}
+.login form{
+	margin-top: 20px;
+	margin-left: 0;
+	padding: 26px 24px 46px;
+	font-weight: 400;
+	overflow: hidden;
+}
+.login .submit{
+	float: right;
+	color: #fff;
+	text-decoration: none;
+	border-width: 1px;
+	cursor: pointer;
+	border-style: solid;
+	height: 30px;
+	line-height: 28px;
+	padding: 0 12px 2px;
+	background: #1e8cbe;
+	border-color: #0074a2;
+}
+.login .submit:hover{
+	background: #0074a2;
+}

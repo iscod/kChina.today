@@ -1,0 +1,11 @@
+body.login{
+	background: #f1f1f1;
+}
+a,img,table,b,span,button,p{
+	margin: 0;
+	padding: 0;
+}
+.header{
+	margin: 0 auto;
+	width: 950px;
+}

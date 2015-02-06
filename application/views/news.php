@@ -1,11 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>kchina
-</title>
+<title>kchina</title>
 <script type="text/javascript" src="/js/jquery.min.js"></script>
 <script type="text/javascript" src="/js/jquery.easing.1.3.js"></script>
-<script type="text/javascript" src="js/lesscss.js"></script>
+<script type="text/javascript" src="/js/less.min.js"></script>
+<script type="text/javascript" src="/quojs/quo.js"></script>
+<script type="text/javascript" src="/quojs/quo.css.js"></script>
+<script type="text/javascript" src="/quojs/quo.events.js"></script>
+<!-- <script type="text/javascript" src="quojs/quo.ajax.js"></script>
+<script type="text/javascript" src="quojs/quo.css.js"></script>
+<script type="text/javascript" src="quojs/quo.element.js"></script>
+<script type="text/javascript" src="quojs/quo.environment.js"></script> -->
+
+<!-- <script type="text/javascript" src="quojs/quo.gestures.js"></script>
+<script type="text/javascript" src="quojs/quo.output.js"></script>
+<script type="text/javascript" src="quojs/quo.query.js"></script>
+<script type="text/javascript" src="quojs/quo.standalone.js"></script> -->
+
+<!-- <script type="text/javascript" src="quojs/quo.standalone.js"></script> -->
 <script type="text/javascript">
 function curve_animate(top) {
 
@@ -39,6 +52,46 @@ $(document).ready(function(){
 }
 </style>
 
+<script  >
+	
+	$(document).ready(function(){
+		$('.valentine').css('background','red');
+		$('.valentine').on("tap", function() {
+	    // affects "span" children/grandchildren
+	 	   alert('xxx');
+		})
+
+	});
+
+	$$(document).ready(function(){
+		$$('.valentine').style('height', '128px');
+		$$('.valentine').tap(function(){
+			alert('xx');
+		});
+	});
+
+		// $$('div').tap(function(){
+		// 	$$(this).style('background','#000')
+		// })
+	
+	$$('element').swipe(function(e) {
+  alert(e.pageX);
+});
+
+	$$('valentine').on("tap", function() {
+    // affects "span" children/grandchildren
+    alert('xxx');
+});
+
+	
+	$$('valentine').swipe(function() {
+  $('valentine').vendor('transform','translate(-100px,-100px)');
+});
+	// $$(".valentine").swipeLeft(function(){
+	// 	alert('xxxx');
+	// })
+
+</script>
 </head>
 <body>
 
