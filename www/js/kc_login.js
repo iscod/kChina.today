@@ -18,7 +18,6 @@ function validate_pwd (pwd) {
 	};
 
 	if (pwd.length < 6) {
-		alert(pwd.length);
 		alert('密码不正确！')
 		return false;
 	};
@@ -48,6 +47,7 @@ function kc_login_form(thisform){
 		},
 		function(json) {
 			if (json.result == 1) {
+				alert(json.msg);
 				top.location='/';
 			} else if(json.result == -1) {
 				alert('这个账户貌似还没有注册哦！');

@@ -13,6 +13,5 @@ class Passport extends KC_Controller {
 	public function login_ok() {
 		$name = $this->input->get('name');
 		$password = $this->input->get('password');
-
 	}
 }

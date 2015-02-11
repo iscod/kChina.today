@@ -3,7 +3,6 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Welcome kChina</title>
-	<link rel="stylesheet/less" href="example.less" />
 	<script src="less.min.js"></script>
 	<link rel="stylesheet" id="dashicons-css" href="/css/style.css?ver=<?php echo CSS_VERSION?>" type="text/css" media="all">
 </head>

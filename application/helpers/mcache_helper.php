@@ -34,7 +34,7 @@ class Mcache {
 		
 		if (self::$_macache !== null) return self::$_macache;
 
-		self::$_macache = new Memcached;
+		self::$_macache = new Memcache;
 
 		$server = ENVIRONMENT == 'development' ? self::$dev_host[SERVERID] : self::$main_host[SERVERID];
 
@@ -42,7 +42,7 @@ class Mcache {
 			self::$_macache->addServer($host['host'], $host['port']);
 		}
 
-		return $_macache;
+		return self::$_macache;
 	}
 	
 	/**
@@ -52,13 +52,17 @@ class Mcache {
 	*/
 
 
-	public static function write($key, $val, $expire = '') {
+	public static function write($key, $val, $expire = false) {
 
-		$macache = self::$_connect();
+		$macache = self::_connect();
 		if ($macache == null) return false;
 
 		$key = md5($key);
-		return $macache->set($key, $val, $expire);
+
+		if ($expire) return $macache->set($key, $val, $expire);
+
+		return $macache->set($key, $val);
+		
 
 	}
 
@@ -69,7 +73,7 @@ class Mcache {
 	*/
 
 	public static function read($key) {
-		$macache = self::$_connect();
+		$macache = self::_connect();
 		if ($macache == null) return false;
 
 		$key = md5($key);
@@ -84,7 +88,7 @@ class Mcache {
 	*/
 
 	public static function delete($key ,$outtime = 0) {
-		$macache = self::$_connect();
+		$macache = self::_connect();
 		if ($macache == null) return false;
 
 		$key = md5($key);
