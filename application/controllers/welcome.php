@@ -29,13 +29,21 @@ class Welcome extends KC_Controller {
 	}
 
 	public function load() {
+
+		$this->load->model('user_model');
+
+		$user_info = $this->user_model->get_by_uid($this->uid);
+
 		$page_info = array();
 		$user_info = array();
 		$data = array(
+			'uid' => $this->uid,
+			'user_info' => $user_info,
 			'page_info' => $page_info,
 			'user_info' => $user_info, 
 			'server_id' => SERVERID
 		);
+
 		$this->load->view('welcome', $data);
 	}
 }

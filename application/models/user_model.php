@@ -18,13 +18,12 @@ class User_model extends CI_Model {
 		$this->load->database();
 		$users = $this->db->get_where('users', array('user_login' => $username));
 
-		if (!$users && $users->num_rows < 1) {
+		if (!$users || $users->num_rows < 1) {
 			return false;
 		}
 
-
 		$user = $users->row_array();
-
+		
 		$uid = $user['ID'];
 
 		Mcache::write('USER_BY_USERNAME_'.$username, $uid);

@@ -52,7 +52,7 @@ function kc_login_form(thisform){
 			} else if(json.result == -1) {
 				alert('这个账户貌似还没有注册哦！');
 			} else if(json.result == -2) {
-				art.dialog('哦，你不会忘记了密码吧！')
+				alert('哦，你不会忘记了密码吧！');
 			}
 		}, 'json');
 		return false;

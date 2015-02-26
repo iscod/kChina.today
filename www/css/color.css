@@ -29,30 +29,30 @@ p{
 	margin: 2px 6px 16px 0;
 }
 /*login id*/
-.login h1{
+.login_con h1{
 	text-align: center;
 }
 #loginform {
 	background: #fff;
 	box-shadow: 0 1px 3px rgba(0,0,0,.13);
 }
-.login{
+.login_con{
 	width: 320px;
 	padding: 8% 0 0;
 	margin: auto;
 }
-.login bookmark-label {
+.login_con bookmark-label {
 color: #777;
 font-size: 14px;
 }
-.login form{
+.login_con form{
 	margin-top: 20px;
 	margin-left: 0;
 	padding: 26px 24px 46px;
 	font-weight: 400;
 	overflow: hidden;
 }
-.login .submit{
+.login_con .submit{
 	float: right;
 	color: #fff;
 	text-decoration: none;
@@ -65,6 +65,6 @@ font-size: 14px;
 	background: #1e8cbe;
 	border-color: #0074a2;
 }
-.login .submit:hover{
+.login_con .submit:hover{
 	background: #0074a2;
 }
