@@ -1,0 +1,15 @@
+.content_book {
+	margin: 40px auto;
+	padding: 0 10px;
+	max-width: 950px;
+}
+.book {
+	float: left;
+	max-width: 60%;
+}
+.book_title {
+	border-bottom: 1px dotted #A0A0A0;
+}
+.book_img {
+	  float: right;
+}

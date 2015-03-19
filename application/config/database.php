@@ -49,15 +49,16 @@ $active_group = 'default';
 $active_record = TRUE;
 
 $db_config = array(
-				1 => array('hostname'=>'127.0.0.1', 'port'=>3306, 'username'=>'kChina', 'password'=>'kChinapassword')
+				'kchina' => array('hostname'=>'127.0.0.1', 'port'=>3306, 'username'=>'kChina', 'password'=>'kChinapassword'),
+				'kcBook' => array('hostname'=>'127.0.0.1', 'port'=>3306, 'username'=>'kChina', 'password'=>'kChinapassword')
 			);
 
-$db['default'] = $db_config[SERVERID];
+$db['default'] = $db_config['kchina'];
 
 $db['default']['database'] = 'kchina';
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = 'kc_';
-$db['default']['pconnect'] = TRUE;
+$db['default']['pconnect'] = FALSE;
 $db['default']['db_debug'] = TRUE;
 $db['default']['cache_on'] = FALSE;
 $db['default']['cachedir'] = '';
@@ -66,6 +67,20 @@ $db['default']['dbcollat'] = 'utf8_general_ci';
 $db['default']['swap_pre'] = '';
 $db['default']['autoinit'] = TRUE;
 $db['default']['stricton'] = FALSE;
+
+$db['book'] = $db_config['kcBook'];
+$db['book']['database'] = 'kc_book';
+$db['book']['dbdriver'] = 'mysql';
+$db['book']['dbprefix'] = 'kc_';
+$db['book']['pconnect'] = FALSE;
+$db['book']['db_debug'] = TRUE;
+$db['book']['cache_on'] = FALSE;
+$db['book']['cachedir'] = '';
+$db['book']['char_set'] = 'utf8';
+$db['book']['dbcollat'] = 'utf8_general_ci';
+$db['book']['swap_pre'] = '';
+$db['book']['autoinit'] = TRUE;
+$db['book']['stricton'] = FALSE;
 
 /* End of file database.php */
 /* Location: ./application/config/database.php */

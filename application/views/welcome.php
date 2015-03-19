@@ -6,24 +6,132 @@
 	<meta name="description" content="免费图书、分享旅行、爱情、话题的文化长廊">
 	<script src="less.min.js"></script>
 	<link rel="stylesheet" id="dashicons-css" href="/css/style.css?ver=<?php echo CSS_VERSION?>" type="text/css" media="all">
+	<script type="text/javascript">
+		//websocrt尽在html支持时
+
+		var connention = new WebSocket('ws://www.kchina.today/websocrt', ['soap'], ['xmpp'])
+
+		//如果连接打开推送一条消息
+		connention.onopen = function() {
+			connention.send('Ping')
+		}
+
+		//log error
+		connention.onerror = function () {
+			connention.log('WebSocket Error' + error);
+		}
+
+		//服务器日志消息
+		connention.onmessage = function (e) {
+			console.log('Server: ' + e.data);
+		}
+
+	</script>
 </head>
 </head>
 <body>
 <?php $this->load->view('header') ?>
+<div id="content_login">
+	<div class="warpper">
+		<div class="warpper_pic">
+			<h1>kc.today</h1>
+			<div class="warpper_des">一次说走就走的旅行，一场奋不顾身的爱情</div>
+		</div>
+		<div class="warpper_login">
+			<form action="/login/kc_login" method="post">
+				<div class="login_input">
+					<p>
+						<bookmark-label for='user_login'><input class="input" type="text" name='login' size='20' placeholder="邮箱"></input></bookmark-label>
+					</p>
+					<p>
+						<bookmark-label for='user_pass'><input class="input" type="password" name="pwd" size='20' placeholder="密码"></input></bookmark-label>
+					</p>
+					<p>
+						<input class="submit" type="submit" name="submit" value="登录">
+						<input type="hidden" name="redirect_to" value="http://www.kchina.today">
+						<input type="hidden" name="textcookie" value="1">
+						<a href="/">注册</a>
+					</p>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
 <div id="content_travel" class="section_con">
+	<div class="warpper">
+		<div class="warpper_nav">
+			<div class="nav_title"><h2><a href="/book">旅行</a></h2></div>
+			<div class="nav_links">
+				<ul>
+					<li><a href="#">美景</a></li>
+					<li><a href="#">地区</a></li>
+					<li><a href="#">评论</a></li>
+					<li><a href="#">推荐</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="warpper_main">
+			<h2>热门风景&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;</h2><span class="more">(<a href="/book/list">更多</a>)</span>
+			<?php foreach ($load_book['books'] as $book) { ?>
+				<div class="main_book" id="book_<?php echo $book['book_id']?>">
+					<div class="book_img"><a href="/book/info/<?php echo $book['book_id']?>"><img src="<?php echo $book['book_cover']?>" alt="<?php echo $book['book_title']?>" width="245px" height="245px"></a></div>
+					<div class="book_footer">
+						<div class="book_title"><?php echo $book['book_title']?></div>
+						<div class="book_commend"><?php echo $book['book_commend']?></div>
+					</div>
+					<!-- <div class="book_time"><?php echo $book['book_time']?></div>
+					<div class="book_level">推荐指数：<?php echo $book['level']?></div>
+					<div class="book_kc_level">Kc推荐指数：<?php echo $book['kc_level']?></div>
+					<div class="book_heat">book_heat</div> -->
+				</div>
+			<?php }?>
+		</div>
+	</div>
 
 </div>
 <div id="content_book" class="section_con">
-
+	<div class="warpper">
+		<div class="warpper_nav">
+			<div class="nav_title"><h2><a href="/book">读书</a></h2></div>
+			<div class="nav_links">
+				<ul>
+					<li><a href="#">阅读</a></li>
+					<li><a href="#">作者</a></li>
+					<li><a href="#">书评</a></li>
+					<li><a href="#">推荐</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="warpper_main">
+			<h2>新书推荐&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;</h2><span class="more">(<a href="/book/list">更多</a>)</span>
+			<?php foreach ($load_book['books'] as $book) { ?>
+				<div class="main_book" id="book_<?php echo $book['book_id']?>">
+					<div class="book_img"><a href="/book/info/<?php echo $book['book_id']?>"><img src="<?php echo $book['book_cover']?>" alt="<?php echo $book['book_title']?>" width="245px" height="245px"></a></div>
+					<div class="book_footer">
+						<div class="book_title"><?php echo $book['book_title']?></div>
+						<div class="book_commend"><?php echo $book['book_commend']?></div>
+					</div>
+					<!-- <div class="book_time"><?php echo $book['book_time']?></div>
+					<div class="book_level">推荐指数：<?php echo $book['level']?></div>
+					<div class="book_kc_level">Kc推荐指数：<?php echo $book['kc_level']?></div>
+					<div class="book_heat">book_heat</div> -->
+				</div>
+			<?php }?>
+		</div>
+	</div>
 </div>
 <div id="content_shoot" class="section_con">
-
+	<div class="warpper">
+		<?php var_dump($load_book);?>
+	</div>
 </div>
 <div id="content_live" class="section_con">
-
+	<div class="warpper">
+	</div>
 </div>
 <div id="content_topic" class="section_con">
-
+	<div class="warpper">
+	</div>
 </div>
 <?php $this->load->view('footer')?>
 </body>
