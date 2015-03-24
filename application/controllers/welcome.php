@@ -56,7 +56,7 @@ class Welcome extends KC_Controller {
 		$load_book = array();
 
 		$db = $this->load->database('book', true);
-		$heat_book_sql = "SELECT * FROM Kc_book WHERE 1";
+		$heat_book_sql = "SELECT * FROM kc_book WHERE 1";
 		$heat_book = $db->query($heat_book_sql);
 		$heat_book = $heat_book->result_array();
 
