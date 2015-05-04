@@ -8,7 +8,7 @@
 	<script type="text/javascript" src="js/jquery.min.js?var=<?php echo JS_VERSION ?>"></script>
 	<script src="/js/less.min.js?var=<?php echo JS_VERSION ?>"></script>
 	<script type="text/javascript" src="js/kc_login.js?var=<?php echo JS_VERSION ?>"></script>
-
+	<script type="text/javascript" src="../js/simlepop.js?var=<?php echo JS_VERSION ?>"></script>
 </head>
 <body class="login">
 	<div class="login_con">

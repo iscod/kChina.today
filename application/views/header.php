@@ -1,5 +1,5 @@
 <div class="header">
-	<h1>kChina.today</h1>
+	<h1><a href="/">kChina.today</a></h1>
 	<div class="nav_links">
 		<ul>
 			<li><a target="_blank" class="lnk_book" href="#">读书</a></li>

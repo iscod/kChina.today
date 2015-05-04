@@ -15,7 +15,7 @@ class Mcache {
 
 	protected static $dev_host = array(
 		'1' => array(
-			array('host' => '127.0.0.1', 'port' =>'11211')
+			array('host' => 'localhost', 'port' =>'11211')
 		)
 	);
 
@@ -25,7 +25,7 @@ class Mcache {
 
 	protected static $main_host = array(
 		'1' => array(
-			array('host' => '127.0.0.1', 'port' =>'11211')
+			array('host' => 'localhost', 'port' =>'11211')
 		)
 	);
 

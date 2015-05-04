@@ -4,8 +4,10 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Welcome kChina</title>
 	<meta name="description" content="免费图书、分享旅行、爱情、话题的文化长廊">
-	<script src="less.min.js"></script>
 	<link rel="stylesheet" id="dashicons-css" href="/css/style.css?ver=<?php echo CSS_VERSION?>" type="text/css" media="all">
+	<script type="text/javascript" src="js/jquery.min.js?var=<?php echo JS_VERSION ?>"></script>
+	<script src="/js/less.min.js?var=<?php echo JS_VERSION ?>"></script>
+	<script type="text/javascript" src="js/kc_login.js?var=<?php echo JS_VERSION ?>"></script>
 	<script type="text/javascript">
 		//websocrt尽在html支持时
 
@@ -38,7 +40,8 @@
 			<div class="warpper_des">一次说走就走的旅行，一场奋不顾身的爱情</div>
 		</div>
 		<div class="warpper_login">
-			<form action="/login/kc_login" method="post">
+			<!-- action="/login/kc_login" method="post" -->
+			<form  onsubmit="return kc_login_form(this);">
 				<div class="login_input">
 					<p>
 						<bookmark-label for='user_login'><input class="input" type="text" name='login' size='20' placeholder="邮箱"></input></bookmark-label>

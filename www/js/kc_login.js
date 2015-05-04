@@ -6,7 +6,7 @@ function validate_log(log){
 	dot_pos = log.indexOf('.')
 	
 	if (apos > 1 && dot_pos < 1) {
-		alert('您似乎使用邮箱登陆，但填写的不正确！')
+		art.alert('您似乎使用邮箱登陆，但填写的不正确！');
 		return false;
 	};
 
@@ -18,7 +18,7 @@ function validate_pwd (pwd) {
 	};
 
 	if (pwd.length < 6) {
-		alert('密码不正确！')
+		art.alert('用户名或密码不正确！')
 		return false;
 	};
 
@@ -47,12 +47,12 @@ function kc_login_form(thisform){
 		},
 		function(json) {
 			if (json.result == 1) {
-				alert(json.msg);
+				art.alert(json.msg);
 				top.location='/';
 			} else if(json.result == -1) {
-				alert('这个账户貌似还没有注册哦！');
+				art.alert('这个账户貌似还没有注册哦！');
 			} else if(json.result == -2) {
-				alert('哦，你不会忘记了密码吧！');
+				art.alert('哦，你不会忘记了密码吧！');
 			}
 		}, 'json');
 		return false;

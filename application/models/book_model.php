@@ -88,10 +88,10 @@ class Book_model extends CI_Model {
 
 	public function get_by_bookid($book_id) {
 
-		// $cache = Mcache::read($this->macacge_key_bookid.$book_id);
-		// if (is_array($cache)) {
-		// 	return $cache;
-		// }
+		$cache = Mcache::read($this->macacge_key_bookid.$book_id);
+		if (is_array($cache)) {
+			return $cache;
+		}
 
 		$this->load->database('book');
 		$query = $this->db->get_where('book', array('book_id'=>$book_id));

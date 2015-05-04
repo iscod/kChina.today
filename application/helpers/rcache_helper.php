@@ -20,7 +20,7 @@ class Rcache {
     *@var array
     */
     protected static $dev_host = array(
-        1 => array('host' => '127.0.0.1', 'port' => '6379'),
+        1 => array('host' => 'localhost', 'port' => '6379'),
     );
 
     /**
@@ -29,7 +29,7 @@ class Rcache {
     *@var array
     */
     protected static $main_host = array(
-        1 => array('host' => '10.182.52.58', 'port'=>'6379'),
+        1 => array('host' => 'localhost', 'port'=>'6379'),
     );
 
 	/**

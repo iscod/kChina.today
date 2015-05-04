@@ -1,0 +1,31 @@
+房间页面
+
+url: /kxshow_room/room
+
+请求参数
+
+POST
+
+array(
+
+)
+
+返回参数
+
+array(
+
+diamond_num => '',
+share_end_time => '',
+)
+
+diamond_num:Ö÷²¥×êÊ¯ÊýÁ¿
+
+share_end_time:
+
+array(
+	'start_time' => '',
+	'end_time' => ''
+)
+
+start_time:活动开始时间
+end_time:活动结束时间
