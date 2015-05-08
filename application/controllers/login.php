@@ -120,12 +120,14 @@ class Login extends KC_Controller {
 
 		$val_key = get_rand_str(20);
 
+		$val_key = md5($val_key);
+
 		if (Mcache::read('register_code_key' . $val_key)) {
 			$val_key = get_rand_str(20);
 		}
 
 		Mcache::write('register_code_key' . $val_key, $email, 3600*48);
-		Mcache::write('register_code_email_pwd', $pwd);
+		Mcache::write('register_code_email_pwd' . $val_key, $pwd);
 
 		$send_email = $this->register_set_email($email, $val_key);
 		if (!$send_email) {
@@ -158,7 +160,7 @@ class Login extends KC_Controller {
 			$data['error'] = 'email_error';
 		}
 		$user_info['user_email'] = $email;
-		$pwd = Mcache::read('register_code_email_pwd');
+		$pwd = Mcache::read('register_code_email_pwd' . $code);
 		$user_info['user_pass'] = md5($pwd);
 		$user_info['user_registered'] = date('Y-m-d H:i:s');
 		$user_info['user_status'] = 0;
