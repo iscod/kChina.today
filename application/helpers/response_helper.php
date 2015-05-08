@@ -2,9 +2,9 @@
 
 /***全局错误码***/
 if(!defined('RESPONSE_OK')) define('RESPONSE_OK', 1);
-if(!defined('RESPONSE_LOGIN')) define('RESPONSE_LOGIN', -1);
-if(!defined('RESPONSE_PASS_ERROR')) define('RESPONSE_PASS_ERROR', -2);
-if(!defined('RESPONSE_ERROR')) define('RESPONSE_ERROR', -3);
+if(!defined('RESPONSE_ERROR')) define('RESPONSE_ERROR', -1);
+if(!defined('RESPONSE_LOGIN')) define('RESPONSE_LOGIN', -2);
+if(!defined('RESPONSE_PASS_ERROR')) define('RESPONSE_PASS_ERROR', -3);
 
 
 

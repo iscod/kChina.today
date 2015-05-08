@@ -36,9 +36,8 @@ class Welcome extends KC_Controller {
 
 		$page_info = array();
 		$user_info = array();
-		$load_book = $this->_load_book();
 
-		// var_dump($load_book);
+		$load_book = $this->_load_book();
 
 		$data = array(
 			'uid' => $this->uid,
@@ -54,8 +53,8 @@ class Welcome extends KC_Controller {
 
 	private function _load_book() {
 		$load_book = array();
-
 		$db = $this->load->database('book', true);
+
 		$heat_book_sql = "SELECT * FROM kc_book WHERE 1";
 		$heat_book = $db->query($heat_book_sql);
 		$heat_book = $heat_book->result_array();

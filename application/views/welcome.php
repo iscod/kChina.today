@@ -53,7 +53,7 @@
 						<input class="submit" type="submit" name="submit" value="登录">
 						<input type="hidden" name="redirect_to" value="http://www.kchina.today">
 						<input type="hidden" name="textcookie" value="1">
-						<a href="/">注册</a>
+						<a target="_blank" href="/login/register">注册</a>
 					</p>
 				</div>
 			</form>

@@ -64,7 +64,43 @@ a:active {
 }
 
 /********content start**********/
+.content_register {
+	margin: 3% auto;
+	padding: 0;
+	max-width: 60%;
+	line-height: 2em;
+	text-align: center;
+}
+.content_register .content_know {
+	 width: 320px;
+	border-radius: 50% 50% 50% 50%;
+	height: 320px;
+	color: #f1f1f1;
+	margin: 0 auto;
+	display: inline-block;
 
+}
+.content_know .know_title {
+	font-size: 24px;
+	text-align: center;
+	padding: 45px 0 10px 0;
+}
+.content_know .know_content {
+	font-size: 14px;
+	padding:0 40px;
+}
+.content_register .register_code {
+	font-size: 14px;
+	margin: 0 auto;
+	max-width: 320px;
+	margin-top: 80px;
+	padding: 0;
+	/*padding: 20% 15% 0 0;*/
+	text-align: center;
+	display: inline-block;
+	position: relative;
+  	top: -60px;
+}
 #content_login {
 	background: #EBF8FA;
 	margin: 20px 0;

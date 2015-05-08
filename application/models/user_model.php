@@ -111,4 +111,20 @@ class User_model extends CI_Model {
 		return $userinfo;
 
 	}
+	/**
+	*@param array $user_info
+	*@return bool true|false
+	*/
+	public function set_user_insert($userinfo) {
+		$is_user = $this->get_by_email($userinfo['user_email']);
+		if ($is_user) return false;
+
+		$this->load->database();
+		$is_insert = $this->db->insert('users', $userinfo);
+
+		if (!$is_insert) return false;
+		$uid = $this->db->insert_id();
+
+		return $uid;
+	}
 }
