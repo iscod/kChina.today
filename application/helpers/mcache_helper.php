@@ -59,7 +59,7 @@ class Mcache {
 
 		$key = md5($key);
 
-		if ($expire) return $macache->set($key, $val, $expire);
+		if ($expire) return $macache->set($key, $val, MEMCACHE_COMPRESSED ,$expire);
 
 		return $macache->set($key, $val);
 		
