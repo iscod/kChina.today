@@ -3,16 +3,17 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>kChina</title>
-	<link rel="stylesheet" id="dashicons-css" href="http://css.kchina.com/css/style.css?ver=<?php echo CSS_VERSION?>" type="text/css" media="all"/>
-	<link rel="stylesheet" id="dashicons-css" href="http://css.kchina.com/css/color.css?ver=<?php echo CSS_VERSION?>" type="text/css" media="all"/>
-	<script type="text/javascript" src="http://js.kchina.com/js/jquery.min.js?var=<?php echo JS_VERSION ?>"></script>
-	<script type="text/javascript" src="http://js.kchina.com/js/less.min.js?var=<?php echo JS_VERSION ?>"></script>
-	<script type="text/javascript" src="http://js.kchina.com/js/kc_login.js?var=<?php echo JS_VERSION ?>"></script>
-	<script type="text/javascript" src="http://js.kchina.com/js/simlepop.js?var=<?php echo JS_VERSION ?>"></script>
+	<link rel="stylesheet" id="dashicons-css" href="http://css.kchina.today/css/style.css?ver=<?php echo CSS_VERSION?>" type="text/css" media="all"/>
+	<link rel="stylesheet" id="dashicons-css" href="http://css.kchina.today/css/color.css?ver=<?php echo CSS_VERSION?>" type="text/css" media="all"/>
+	<script type="text/javascript" src="http://js.kchina.today/js/jquery.min.js?var=<?php echo JS_VERSION ?>"></script>
+	<script type="text/javascript" src="http://js.kchina.today/js/less.min.js?var=<?php echo JS_VERSION ?>"></script>
+	<script type="text/javascript" src="http://js.kchina.today/js/kc_login.js?var=<?php echo JS_VERSION ?>"></script>
+	<script type="text/javascript" src="http://js.kchina.today/js/simlepop.js?var=<?php echo JS_VERSION ?>"></script>
 	<script type="text/javascript">
 		function kc_register_form(thisform){
 
 			login_name = thisform.login.value;
+
 			is_type = validate_log(login_name);
 
 			if (is_type == false) {
