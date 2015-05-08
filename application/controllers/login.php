@@ -159,9 +159,12 @@ class Login extends KC_Controller {
 		if (md5($email) != $md_email && strtotime('-2 day') < $time) {
 			$data['error'] = 'email_error';
 		}
+		
+		$user_info['user_login'] = '';
 		$user_info['user_email'] = $email;
 		$pwd = Mcache::read('register_code_email_pwd' . $code);
 		$user_info['user_pass'] = md5($pwd);
+		$user_info['user_nickname'] ='';
 		$user_info['user_registered'] = date('Y-m-d H:i:s');
 		$user_info['user_status'] = 0;
 		$this->load->model('user_model');
