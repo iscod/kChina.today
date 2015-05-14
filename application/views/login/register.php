@@ -14,12 +14,20 @@
 
 			login_name = thisform.login.value;
 
-			is_type = validate_log(login_name);
 
-			if (is_type == false) {
+			if (login_name == null || login_name == '') {
 				thisform.login.focus();
 				return false;
-			}
+			};
+
+			apos = login_name.indexOf('@');
+			dot_pos = login_name.indexOf('.')
+
+			if ((apos > 1 || dot_pos < 2)) {
+				art.alert('使用邮箱注册！');
+				thisform.login.focus();
+				return false;
+			};
 
 			pwd = thisform.pwd.value
 			next_pwd = thisform.next_pwd.value

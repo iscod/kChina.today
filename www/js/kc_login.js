@@ -6,7 +6,7 @@ function validate_log(log){
 	apos = log.indexOf('@');
 	dot_pos = log.indexOf('.')
 	
-	if ((apos > 1 && dot_pos < 1) || (dot_pos - apos < 2)) {
+	if ((apos > 1 && dot_pos < 1)) {
 		art.alert('您似乎使用邮箱登陆，但填写的不正确！');
 		return false;
 	};
