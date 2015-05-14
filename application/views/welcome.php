@@ -4,29 +4,31 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Welcome kChina</title>
 	<meta name="description" content="免费图书、分享旅行、爱情、话题的文化长廊">
-	<link rel="stylesheet" id="dashicons-css" href="/css/style.css?ver=<?php echo CSS_VERSION?>" type="text/css" media="all">
-	<script type="text/javascript" src="js/jquery.min.js?var=<?php echo JS_VERSION ?>"></script>
-	<script src="/js/less.min.js?var=<?php echo JS_VERSION ?>"></script>
-	<script type="text/javascript" src="js/kc_login.js?var=<?php echo JS_VERSION ?>"></script>
+	<link rel="stylesheet" id="dashicons-css" href="http://css.<?php echo HOST_DOMAIN?>/css/style.css?ver=<?php echo CSS_VERSION?>" type="text/css" media="all">
+	<script type="text/javascript" src="http://js.<?php echo HOST_DOMAIN?>/js/jquery.min.js?var=<?php echo JS_VERSION ?>"></script>
+	<script src="http://js.<?php echo HOST_DOMAIN?>/js/less.min.js?var=<?php echo JS_VERSION ?>"></script>
+	<script type="text/javascript" src="http://js.<?php echo HOST_DOMAIN?>/js/kc_login.js?var=<?php echo JS_VERSION ?>"></script>
+	<script type="text/javascript" src="http://js.<?php echo HOST_DOMAIN;?>/js/simlepop.js?var=<?php echo JS_VERSION ?>"></script>
+	<script type="text/javascript" scr="http://js.<?php echo HOST_DOMAIN;?>/js/websocket.js?var=<?php echo JS_VERSION ?>"></script>
 	<script type="text/javascript">
 		//websocrt尽在html支持时
 
-		var connention = new WebSocket('ws://www.kchina.today/websocrt', ['soap'], ['xmpp'])
+		// var connention = new WebSocket('ws://www.<?php echo HOST_DOMAIN?>/websocrt', ['soap'], ['xmpp'])
 
 		//如果连接打开推送一条消息
-		connention.onopen = function() {
-			connention.send('Ping')
-		}
+		// connention.onopen = function() {
+		// 	connention.send('Ping')
+		// }
 
 		//log error
-		connention.onerror = function () {
-			connention.log('WebSocket Error' + error);
-		}
+		// connention.onerror = function () {
+		// 	connention.log('WebSocket Error' + error);
+		// }
 
 		//服务器日志消息
-		connention.onmessage = function (e) {
-			console.log('Server: ' + e.data);
-		}
+		// connention.onmessage = function (e) {
+		// 	console.log('Server: ' + e.data);
+		// }
 
 	</script>
 </head>
@@ -36,12 +38,12 @@
 <div id="content_login">
 	<div class="warpper">
 		<div class="warpper_pic">
-			<h1>kc.today</h1>
+			<h1><?php echo HOST_DOMAIN?></h1>
 			<div class="warpper_des">一次说走就走的旅行，一场奋不顾身的爱情</div>
 		</div>
 		<div class="warpper_login">
 			<!-- action="/login/kc_login" method="post" -->
-			<form  onsubmit="return kc_login_form(this);">
+			<form action="/login/kc_login" method="post" onsubmit="return kc_login_form(this);">
 				<div class="login_input">
 					<p>
 						<bookmark-label for='user_login'><input class="input" type="text" name='login' size='20' placeholder="邮箱"></input></bookmark-label>
@@ -51,7 +53,7 @@
 					</p>
 					<p>
 						<input class="submit" type="submit" name="submit" value="登录">
-						<input type="hidden" name="redirect_to" value="http://www.kchina.today">
+						<input type="hidden" name="redirect_to" value="http://www.<?php echo HOST_DOMAIN;?>">
 						<input type="hidden" name="textcookie" value="1">
 						<a target="_blank" href="/login/register">注册</a>
 					</p>

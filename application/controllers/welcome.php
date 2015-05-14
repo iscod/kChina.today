@@ -1,4 +1,4 @@
-﻿<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Welcome extends KC_Controller {
 
@@ -103,6 +103,10 @@ class Welcome extends KC_Controller {
 	public function _load_travel() {
 		$data = array();
 		return $data;
+	}
+
+	public function a(){
+		$this->x();
 	}
 }
 

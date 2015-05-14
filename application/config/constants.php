@@ -49,5 +49,5 @@ define('FOPEN_READ_WRITE_CREATE_STRICT',		'x+b');
 /* Location: ./application/config/constants.php */
 
 define('HOST_NAME', 'KC');
-define('HOST_DOMAIN', 'kchina.today');
+define('HOST_DOMAIN', 'kChina.today');
 

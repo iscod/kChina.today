@@ -2,12 +2,12 @@
 <html>
 <head>
 <title>kchina</title>
-<script type="text/javascript" src="/js/jquery.min.js"></script>
-<script type="text/javascript" src="/js/jquery.easing.1.3.js"></script>
-<script type="text/javascript" src="/js/less.min.js"></script>
-<script type="text/javascript" src="/quojs/quo.js"></script>
-<script type="text/javascript" src="/quojs/quo.css.js"></script>
-<script type="text/javascript" src="/quojs/quo.events.js"></script>
+<script type="text/javascript" src="http://js.<?php echo HOST_D0MIN?>/js/jquery.min.js"></script>
+<script type="text/javascript" src="http://js.<?php echo HOST_D0MIN?>/js/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="http://js.<?php echo HOST_D0MIN?>/js/less.min.js"></script>
+<script type="text/javascript" src="http://js.<?php echo HOST_D0MIN?>/quojs/quo.js"></script>
+<script type="text/javascript" src="http://js.<?php echo HOST_D0MIN?>/quojs/quo.css.js"></script>
+<script type="text/javascript" src="http://js.<?php echo HOST_D0MIN?>/quojs/quo.events.js"></script>
 <!-- <script type="text/javascript" src="quojs/quo.ajax.js"></script>
 <script type="text/javascript" src="quojs/quo.css.js"></script>
 <script type="text/javascript" src="quojs/quo.element.js"></script>

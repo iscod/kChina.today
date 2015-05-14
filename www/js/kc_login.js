@@ -6,7 +6,7 @@ function validate_log(log){
 	apos = log.indexOf('@');
 	dot_pos = log.indexOf('.')
 	
-	if ((apos > 1 && dot_pos < 1) || (dot_pos - apos < 2)) {
+	if ((apos > 1 && dot_pos < 1)) {
 		art.alert('您似乎使用邮箱登陆，但填写的不正确！');
 		return false;
 	};
@@ -39,6 +39,7 @@ function kc_login_form(thisform){
 		thisform.pwd.focus();
 		return false;
 	}
+	
 	if (is_type && is_pwd) {
 		$.post("login/kc_login",
 		{
@@ -49,7 +50,7 @@ function kc_login_form(thisform){
 		function(json) {
 			if (json.result == 1) {
 				art.alert(json.msg);
-				top.location='/';
+				// top.location='/';
 			} else if(json.result == -1) {
 				art.alert(json.msg);
 			} else if(json.result == -2) {
