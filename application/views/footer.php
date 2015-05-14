@@ -1,6 +1,6 @@
 <div class="footer">
 	<div class="rights">
-		©2014-2015 kChina.today all rights reserved
+		©2014-2015 <?php echo HOST_DOMAIN;?> all rights reserved
 	</div>
 	<div class='nav_footer'>
 		<ul>

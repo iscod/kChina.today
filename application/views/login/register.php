@@ -2,13 +2,13 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>kChina</title>
-	<link rel="stylesheet" id="dashicons-css" href="http://css.kchina.today/css/style.css?ver=<?php echo CSS_VERSION?>" type="text/css" media="all"/>
-	<link rel="stylesheet" id="dashicons-css" href="http://css.kchina.today/css/color.css?ver=<?php echo CSS_VERSION?>" type="text/css" media="all"/>
-	<script type="text/javascript" src="http://js.kchina.today/js/jquery.min.js?var=<?php echo JS_VERSION ?>"></script>
-	<script type="text/javascript" src="http://js.kchina.today/js/less.min.js?var=<?php echo JS_VERSION ?>"></script>
-	<script type="text/javascript" src="http://js.kchina.today/js/kc_login.js?var=<?php echo JS_VERSION ?>"></script>
-	<script type="text/javascript" src="http://js.kchina.today/js/simlepop.js?var=<?php echo JS_VERSION ?>"></script>
+	<title><?php echo HOST_DOMAIN;?></title>
+	<link rel="stylesheet" id="dashicons-css" href="http://css.<?php echo HOST_DOMAIN?>/css/style.css?ver=<?php echo CSS_VERSION?>" type="text/css" media="all"/>
+	<link rel="stylesheet" id="dashicons-css" href="http://css.<?php echo HOST_DOMAIN?>/css/color.css?ver=<?php echo CSS_VERSION?>" type="text/css" media="all"/>
+	<script type="text/javascript" src="http://js.<?php echo HOST_DOMAIN?>/js/jquery.min.js?var=<?php echo JS_VERSION ?>"></script>
+	<script type="text/javascript" src="http://js.<?php echo HOST_DOMAIN?>/js/less.min.js?var=<?php echo JS_VERSION ?>"></script>
+	<script type="text/javascript" src="http://js.<?php echo HOST_DOMAIN?>/js/kc_login.js?var=<?php echo JS_VERSION ?>"></script>
+	<script type="text/javascript" src="http://js.<?php echo HOST_DOMAIN?>/js/simlepop.js?var=<?php echo JS_VERSION ?>"></script>
 	<script type="text/javascript">
 		function kc_register_form(thisform){
 
@@ -90,7 +90,7 @@
 </head>
 <body class="login">
 	<div class="login_con">
-		<h1>kChina.today</h1>
+		<h1><?php echo HOST_DOMAIN;?></h1>
 		<form name="loginform" id="registerform" onsubmit="return kc_register_form(this);">
 			<div class="login_input">
 				<p>
@@ -105,7 +105,7 @@
 				<p>
 					<input type="hidden" name="textcode" value="<?php //echo $textcode;?>">
 					<input class="submit" type="submit" name="submit" value="确认">
-					<input type="hidden" name="redirect_to" value="http://www.kchina.today">
+					<input type="hidden" name="redirect_to" value="http:www.<?php echo HOST_DOMAIN;?>">
 					<input type="hidden" name="textcookie" value="1">
 				</p>
 			</div>

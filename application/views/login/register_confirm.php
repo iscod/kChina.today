@@ -2,18 +2,18 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>kChina</title>
-	<link rel="stylesheet" id="dashicons-css" href="http://css.kchina.today/css/style.css?ver=<?php echo CSS_VERSION?>" type="text/css" media="all"/>
-	<link rel="stylesheet" id="dashicons-css" href="http://css.kchina.today/css/color.css?ver=<?php echo CSS_VERSION?>" type="text/css" media="all"/>
-	<script type="text/javascript" src="http://js.kchina.today/js/jquery.min.js?var=<?php echo JS_VERSION ?>"></script>
-	<script type="text/javascript" src="http://js.kchina.today/js/less.min.js?var=<?php echo JS_VERSION ?>"></script>
-	<script type="text/javascript" src="http://js.kchina.today/js/kc_login.js?var=<?php echo JS_VERSION ?>"></script>
-	<script type="text/javascript" src="http://js.kchina.today/js/simlepop.js?var=<?php echo JS_VERSION ?>"></script>
+	<title><?php echo HOST_DOMAIN;?></title>
+	<link rel="stylesheet" id="dashicons-css" href="http://css.<?php echo HOST_DOMAIN ;?>/css/style.css?ver=<?php echo CSS_VERSION?>" type="text/css" media="all"/>
+	<link rel="stylesheet" id="dashicons-css" href="http://css.<?php echo HOST_DOMAIN ;?>/css/color.css?ver=<?php echo CSS_VERSION?>" type="text/css" media="all"/>
+	<script type="text/javascript" src="http://js.<?php echo HOST_DOMAIN ;?>/js/jquery.min.js?var=<?php echo JS_VERSION ?>"></script>
+	<script type="text/javascript" src="http://js.<?php echo HOST_DOMAIN ;?>/js/less.min.js?var=<?php echo JS_VERSION ?>"></script>
+	<script type="text/javascript" src="http://js.<?php echo HOST_DOMAIN ;?>/js/kc_login.js?var=<?php echo JS_VERSION ?>"></script>
+	<script type="text/javascript" src="http://js.<?php echo HOST_DOMAIN ;?>/js/simlepop.js?var=<?php echo JS_VERSION ?>"></script>
 </head>
 <body class="login">
 <?php //$this->load->view('header') ?>
 	<div class="login_con">
-		<h1>kChina.today</h1>
+		<h1><?php echo HOST_DOMAIN;?></h1>
 	</div>
 	<div class="content_register">
 		<div class="content_know" style="background:url(/image/know/know_xuanwu_1.png);">
@@ -22,7 +22,7 @@
 			</div>
 		<div class="register_code">
 			<?php if (isset($error) && $error == 'time_out'): ?>
-				<p>您估计在两天前申请过KC，但是你知道的，我们不会保留那么长的时间的。建议您再申请注册一次，进行验证。</p>
+				<p>您估计在两天前申请过<?php echo HOST_NAME;?>，但是你知道的，我们不会保留那么长的时间的。建议您再申请注册一次，进行验证。</p>
 				<p>访问<a href="/"><?php echo HOST_NAME;?></a></p>
 			<?php endif;?>
 			<?php if (isset($error) && $error == 'email_error'): ?>
@@ -34,7 +34,7 @@
 				<p>访问<a href="/"><?php echo HOST_NAME;?></a></p>
 			<?php endif; ?>
 			<?php if (isset($error) && $error == 'is_uid'): ?>
-				<p>O！该邮箱已经在Kc的注册表中了，使用<?php echo $email;?>进行登录吧！</p>
+				<p>O！该邮箱已经在<?php echo HOST_NAME;?>的注册表中了，使用<?php echo $email;?>进行登录吧！</p>
 				<p>访问<a href="/"><?php echo HOST_NAME;?></a></p>
 			<?php endif;?>
 			<?php if (isset($uid) && $uid) :?>

@@ -39,6 +39,7 @@ function kc_login_form(thisform){
 		thisform.pwd.focus();
 		return false;
 	}
+	
 	if (is_type && is_pwd) {
 		$.post("login/kc_login",
 		{
@@ -49,7 +50,7 @@ function kc_login_form(thisform){
 		function(json) {
 			if (json.result == 1) {
 				art.alert(json.msg);
-				top.location='/';
+				// top.location='/';
 			} else if(json.result == -1) {
 				art.alert(json.msg);
 			} else if(json.result == -2) {

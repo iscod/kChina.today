@@ -92,14 +92,15 @@ a:active {
 .content_register .register_code {
 	font-size: 14px;
 	margin: 0 auto;
-	max-width: 320px;
+	max-width: 300px;
 	margin-top: 80px;
 	padding: 0;
-	/*padding: 20% 15% 0 0;*/
 	text-align: center;
 	display: inline-block;
 	position: relative;
-  	top: -60px;
+	top: -60px;
+	border-left: 1px dashed #bdbdbd;
+	margin-left: 40px;
 }
 #content_login {
 	background: #EBF8FA;
