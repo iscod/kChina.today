@@ -37,7 +37,7 @@ imagefilledellipse($image, $blue_x, $blue_y, $radius, $radius, $blue);
 // var_dump($image);
 // exit;	
 // 不要忘记输出正确的 header！
-header('Content-type: image/pjpeg');
+// header('Content-type: image/pjpeg');
 // var_dump($image);
 // 最后输出结果
 imagejpeg($image);

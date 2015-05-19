@@ -104,10 +104,6 @@ class Welcome extends KC_Controller {
 		$data = array();
 		return $data;
 	}
-
-	public function a(){
-		$this->x();
-	}
 }
 
 /* End of file welcome.php */

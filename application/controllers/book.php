@@ -8,6 +8,13 @@ class Book extends KC_Controller {
 	}
 
 	/**
+	*book index
+	*/
+	public function index(){
+		$data = array();
+		$this->load->view('book/index', $data);
+	}
+	/**
 	*for book
 	*@author IsCod
 	*/
@@ -19,7 +26,7 @@ class Book extends KC_Controller {
 			'bookid' => $bookid,
 			'book_info' => $book_info,
 		);
-		$this->load->view('book', $data);
+		$this->load->view('book/book', $data);
 	}
 	/**
 	*up book

@@ -1,5 +1,5 @@
 body.login{
-	background: #f1f1f1;
+	background: url(/image/theme/bg_login.jpg) 0% 0% no-repeat;
 }
 a,button,p{
 	margin: 0;
@@ -31,10 +31,6 @@ p{
 .login_con h1{
 	text-align: center;
 }
-#loginform {
-	background: #fff;
-	box-shadow: 0 1px 3px rgba(0,0,0,.13);
-}
 .login_con{
 	width: 320px;
 	padding: 8% 0 0;
@@ -47,9 +43,10 @@ font-size: 14px;
 .login_con form{
 	margin-top: 20px;
 	margin-left: 0;
-	padding: 26px 24px 46px;
+	padding: 26px 24px;
 	font-weight: 400;
 	overflow: hidden;
+	background: rgba(255, 255, 255, 0.7);
 }
 .login_con .submit{
 	float: right;

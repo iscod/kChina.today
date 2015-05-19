@@ -5,6 +5,7 @@
 define('CSS_VERSION', 2015010701);
 define('JS_VERSION',  2015010701);
 define('SWF_VERSION', 2015010701);
+define('IMG_VERSION', 2015051901);
 
 /**** version configuration ****/
 
