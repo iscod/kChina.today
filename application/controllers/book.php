@@ -11,7 +11,19 @@ class Book extends KC_Controller {
 	*book index
 	*/
 	public function index(){
-		$data = array();
+		$query = array(
+			0 => array('bookid'=>1),
+			1 => array('bookid'=>2)
+		);
+		foreach ($query as $key => $value) {
+			$book = array(
+				'book_id' => $value['bookid'],
+			);
+			$books[] = $book;
+		}
+		$data = array(
+			'books' => $books
+		);
 		$this->load->view('book/index', $data);
 	}
 	/**

@@ -65,21 +65,21 @@
 <div id="content_travel" class="section_con">
 	<div class="warpper">
 		<div class="warpper_nav">
-			<div class="nav_title"><h2><a href="/book">旅行</a></h2></div>
+			<div class="nav_title"><h2><a href="/book" target="_blank">旅行</a></h2></div>
 			<div class="nav_links">
 				<ul>
-					<li><a href="#">美景</a></li>
-					<li><a href="#">地区</a></li>
-					<li><a href="#">评论</a></li>
-					<li><a href="#">推荐</a></li>
+					<li><a href="#" target="_blank">美景</a></li>
+					<li><a href="#" target="_blank">地区</a></li>
+					<li><a href="#" target="_blank">评论</a></li>
+					<li><a href="#" target="_blank">推荐</a></li>
 				</ul>
 			</div>
 		</div>
 		<div class="warpper_main">
-			<h2>热门风景&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;</h2><span class="more">(<a href="/book/list">更多</a>)</span>
+			<h2>热门风景&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;</h2><span class="more">(<a href="/book/list" target="_blank">更多</a>)</span>
 			<?php foreach ($load_book['books'] as $book) { ?>
 				<div class="main_book" id="book_<?php echo $book['book_id']?>">
-					<div class="book_img"><a href="/book/info/<?php echo $book['book_id']?>"><img src="<?php echo $book['book_cover']?>" alt="<?php echo $book['book_title']?>" width="245px" height="245px"></a></div>
+					<div class="book_img"><a href="/book/info/<?php echo $book['book_id']?>" target="_blank"><img src="<?php echo $book['book_cover']?>" alt="<?php echo $book['book_title']?>" width="245px" height="245px"></a></div>
 					<div class="book_footer">
 						<div class="book_title"><?php echo $book['book_title']?></div>
 						<div class="book_commend"><?php echo $book['book_commend']?></div>
@@ -97,21 +97,21 @@
 <div id="content_book" class="section_con">
 	<div class="warpper">
 		<div class="warpper_nav">
-			<div class="nav_title"><h2><a href="/book">读书</a></h2></div>
+			<div class="nav_title"><h2><a href="/book" target="_blank">读书</a></h2></div>
 			<div class="nav_links">
 				<ul>
-					<li><a href="#">阅读</a></li>
-					<li><a href="#">作者</a></li>
-					<li><a href="#">书评</a></li>
-					<li><a href="#">推荐</a></li>
+					<li><a href="#" target="_blank">阅读</a></li>
+					<li><a href="#" target="_blank">作者</a></li>
+					<li><a href="#" target="_blank">书评</a></li>
+					<li><a href="#" target="_blank">推荐</a></li>
 				</ul>
 			</div>
 		</div>
 		<div class="warpper_main">
-			<h2>新书推荐&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;</h2><span class="more">(<a href="/book/list">更多</a>)</span>
+			<h2>新书推荐&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;</h2><span class="more">(<a href="/book/list" target="_blank">更多</a>)</span>
 			<?php foreach ($load_book['books'] as $book) { ?>
 				<div class="main_book" id="book_<?php echo $book['book_id']?>">
-					<div class="book_img"><a href="/book/info/<?php echo $book['book_id']?>"><img src="<?php echo $book['book_cover']?>" alt="<?php echo $book['book_title']?>" width="245px" height="245px"></a></div>
+					<div class="book_img"><a href="/book/info/<?php echo $book['book_id']?>" target="_blank"><img src="<?php echo $book['book_cover']?>" alt="<?php echo $book['book_title']?>" width="245px" height="245px"></a></div>
 					<div class="book_footer">
 						<div class="book_title"><?php echo $book['book_title']?></div>
 						<div class="book_commend"><?php echo $book['book_commend']?></div>
