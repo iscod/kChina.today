@@ -23,6 +23,7 @@ class User_model extends CI_Model {
 		
 		$this->load->database();
 		$this->db->select('ID');
+
 		$users = $this->db->get_where('users', array('user_login' => $username));
 
 		if (!$users || $users->num_rows < 1) {
@@ -89,8 +90,10 @@ class User_model extends CI_Model {
 
 		Mcache::delete($this->mcache_key_uid . $uid);
 
-		$this->load->database();
-		$query = $this->db->get_where('users', array('ID' => $uid));
+		$user_config = dbclass::user($uid);
+		$db = $this->load->database($user_config['dsn'], true);
+
+		$query = $db->get_where($user_config['table'], array('ID' => $uid));
 
 		if (!$query) {
 			return false;

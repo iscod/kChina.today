@@ -7,10 +7,10 @@
 
 class Book_model extends CI_Model {
 
-
 	private $mcache_book_relat = "MCACHE_KC_BOOK_RELAT";
 	private $mcache_book_trems = "MCACHE_KC_BOOK_TERMS";
-	private $macacge_key_bookid = "MCACHE_KC_BY_BOOK_ID";
+	private $macache_key_bookid = "MCACHE_KC_BY_BOOK_ID";
+	private $mcache_key_book_recommend = 'MCACHE_KC_BOOK_RECOMMEND';
 
 	public function __construct()
 	{
@@ -75,33 +75,25 @@ class Book_model extends CI_Model {
 	*@param $book_id
 	*@return array|false
 	*/
-	// public function get_book_info($book_id) {
-	// 	if (!$book_id) return false;
-
-	// 	if (!$this->is_bookid($book_id)) return false;
-
-	// 	$data = $this->get_by_bookid($book_id);
-	// 	$data['tremid'] = $this->get_trems($book_id);
-	// 	$data['trem_name'] = ;
-
-	// }
 
 	public function get_by_bookid($book_id) {
 
-		$cache = Mcache::read($this->macacge_key_bookid.$book_id);
+		$cache = Mcache::read($this->macache_key_bookid.$book_id);
 		if (is_array($cache)) {
 			return $cache;
 		}
 
-		$this->load->database('book');
-		$query = $this->db->get_where('book', array('book_id'=>$book_id));
+		$book_config = dbclass::book();
+		$db = $this->load->database($book_config['dsn'], true);
 
-		if (!is_object($query) || !$query || $query->row_array()<1 ) return false;
+		$query = $db->get_where('kc_book', array('book_id'=>$book_id));
+
+		if (!is_object($query) || !$query || $query->num_rows()<1 ) return false;
 
 		$book = $query->row_array();
 		$book['book_cover'] = '/image/book/cover/' . md5($book['book_id']) . '.jpg';
 
-		$query_trem = $this->db->get_where('book_relat', array('book_id' => $book_id));
+		$query_trem = $db->get_where('kc_book_relat', array('book_id' => $book_id));
 
 		$trem = $query_trem->row_array();
 
@@ -110,8 +102,37 @@ class Book_model extends CI_Model {
 			$book['trem_name'] = $this->get_trems_name($trem['trem_id']);
 		}
 
-		Mcache::write($this->macacge_key_bookid.$book_id, $book);
+		Mcache::write($this->macache_key_bookid.$book_id, $book);
 		return $book;
+	}
+
+	/**
+	*get book recommend
+	* @return array $books
+	*/
+	public function get_book_recommend($cache = true) {
+		if ($cache) {
+			$books = Mcache::read($this->mcache_key_book_recommend);
+			if ($books) return $books;
+		}
+
+		$book_config = dbclass::book();
+		$db = $this->load->database($book_config['dsn'], true);
+
+		$query = $db->get('kc_book');
+
+
+
+		if (!is_object($query) || !$query || $query->num_rows()<1) return false;
+
+		$books = $query->result_array();
+
+		foreach ($books as $book) {
+			$book_commends[] = $book;
+		}
+
+		Mcache::write($this->mcache_key_book_recommend, $book_commends);
+		return $book_commends;
 	}
 
 }

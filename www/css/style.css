@@ -53,6 +53,60 @@ a:active {
 	padding: 9px 8px;
 	margin: 2px 6px 5px 0;
 }
+.submit{
+	color: #fff;
+	text-decoration: none;
+	cursor: pointer;
+	height: 24px;
+	width: 60px;
+	margin-top: 10px;
+	background: #1e8cbe;
+	border:1px solid #0074a2;
+}
+.submit:hover{
+	background: #0074a2;
+}
+.level5,.level10,.level15,.level20,.level25,.level30,.level35,.level40,.level45,.level50 {
+	display: inline-block;
+	width: 55px;
+	height: 11px;
+	background:url("http://img3.douban.com/f/shire/5cb30ab98d8deb43ff321ef2c64493cbd2d6c057/pics/movie/midstars.gif") no-repeat;
+	overflow: hidden;
+	margin: 0 8px 0px 0;
+}
+.level0{
+	background-position: 0 -110px;
+}
+.level5 {
+	background-position: 0 -99px;
+}
+.level10 {
+	background-position: 0 -88px;
+}
+.level15 {
+	background-position: 0 -77px;
+}
+.level20 {
+	background-position: 0 -66px;
+}
+.level25 {
+	background-position: 0 -55px;
+}
+.level30 {
+	background-position: 0 -44px;
+}
+.level35 {
+	background-position: 0 -33px;
+}
+.level40 {
+	background-position: 0 -22px;
+}
+.level45 {
+	background-position: 0 -11px;
+}
+.level50 {
+	background-position: 0 0px;
+}
 /***********header start******************/
 .header{
 	margin: 0 auto;
@@ -61,6 +115,23 @@ a:active {
 .header li {
 	display: inline-block;
 	#display: inline;
+}
+.head_login {
+	margin: -50px 0 0px 0;
+	padding: 0;
+	float: right;
+}
+.head_login .input{
+	height: 14px;
+	margin: 0;
+	padding: 5px 3px;
+	width: 160px;
+	font-size: 12px;
+	line-height: 1.3em;
+	filter: alpha(opacity=50);
+	background: #fff;
+	background: rgba(255, 255, 255, 0.4);
+	border: 1px double #D7D7D7;
 }
 
 /********content start**********/
@@ -130,19 +201,6 @@ a:active {
 	border-left: 1px dashed #D7D7D7;
 	padding: 0 0 0 80px;
 	display: inline-block;
-}
-.warpper_login .submit{
-	color: #fff;
-	text-decoration: none;
-	cursor: pointer;
-	height: 24px;
-	width: 60px;
-	margin-top: 10px;
-	background: #1e8cbe;
-	border:1px solid #0074a2;
-}
-.warpper_login .submit:hover{
-	background: #0074a2;
 }
 .warpper_login a {
 	display: inline-block;

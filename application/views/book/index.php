@@ -7,6 +7,7 @@
 	<script type="text/javascript" src="http://js.<?php echo HOST_DOMAIN?>/js/jquery.min.js?var=<?php echo JS_VERSION ?>"></script>
 	<script src="http://js.<?php echo HOST_DOMAIN?>/js/less.min.js?var=<?php echo JS_VERSION?>"></script>
 	<script src="http://js.<?php echo HOST_DOMAIN?>/js/jquery.fullPage.js?var=<?php echo JS_VERSION?>"></script>
+	<script type="text/javascript" src="http://js.<?php echo HOST_DOMAIN?>/js/kc_login.js?var=<?php echo JS_VERSION ?>"></script>
 	<script src="http://js.<?php echo HOST_DOMAIN?>/js/jquery.slimscroll.js?var=<?php echo JS_VERSION?>"></script>
 	<script src="http://js.<?php echo HOST_DOMAIN?>/js/jquery.easings.min.js?var=<?php echo JS_VERSION?>"></script>
 	<link rel="stylesheet" id="dashicons-css" href="http://css.<?php echo HOST_DOMAIN?>/css/jquery.fullPage.css?var=<?php echo CSS_VERSION?>" TYPE="text/css" media="all">
@@ -96,35 +97,19 @@
 			<div class="section section_<?php echo $key?>" style="background:url(http://img.<?php echo HOST_DOMAIN?>/image/book/bg_section_<?php echo $key?>.jpg?var=<?php echo IMG_VERSION?>) 0% 0% no-repeat #f7f7f7">
 		    	<div class="content_book">
 		    		<div class="book_box">
-			    		<div class="booktitle"><a href="/book/info/<?php echo $book['book_id']?>" target="_blank">平凡的世界</a></div>
+			    		<div class="booktitle"><a href="/book/info/<?php echo $book['book_id']?>" target="_blank"><?php echo $book['book_title']?></a></div>
 			    		<div class="booknew">
-			    			<div class="bookauthor">路遥</div>
-			    			<div class="booktime">出版时间：2010年</div>
-			    			<div class="bookcommend">一部对时代人生爱情的伟大阐释</div>
-			    			<div class="bookregistered">分享时间：2015-02-38 11:46:28</div>
-			    			<div class="bookheat">人气：10</div>
-			    			<div class="kc_level">推荐指数：1</div>
+			    			<div class="bookauthor"><?php echo $book['book_author']?></div>
+			    			<div class="booktime">出版时间：<?php echo $book['book_time']?>年</div>
+			    			<div class="bookcommend"><?php echo $book['book_commend']?>一部对时代人生爱情的伟大阐释</div>
+			    			<div class="bookregistered">分享时间：<?php echo $book['book_registered']?></div>
+			    			<div class="bookheat">人气：<?php echo $book['book_heat']?></div>
+			    			<div class="kc_level"><span class="level<?php echo floor($book['kc_level'])*5 ?>"></span><?php echo $book['kc_level']?></div>
 			    		</div>
 			    	</div>
 		    	</div>
 		    </div>
 		<?php endforeach; ?>
-
-	    <div class="section section_1">
-	    	<div class="content_book">
-	    		<div class="book_box">
-		    		<div class="booktitle">平凡的世界</div>
-		    		<div class="booknew">
-		    			<div class="bookauthor">路遥</div>
-		    			<div class="booktime">出版时间：2010年</div>
-		    			<div class="bookcommend">一部对时代人生爱情的伟大阐释</div>
-		    			<div class="bookregistered">分享时间：2015-02-38 11:46:28</div>
-		    			<div class="bookheat">人气：10</div>
-		    			<div class="kc_level">推荐指数：1</div>
-		    		</div>
-		    	</div>
-	    	</div>
-	    </div>
 	    <div class="section section_2">
 	    	<div class="content_book">
 	    		<div class="book_box">

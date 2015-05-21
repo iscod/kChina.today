@@ -64,7 +64,7 @@ $autoload['libraries'] = array();
 |	$autoload['helper'] = array('url', 'file');
 */
 
-$autoload['helper'] = array('response', 'common', 'rcache', 'mcache');
+$autoload['helper'] = array('response', 'common', 'rcache', 'mcache', 'dbclass');
 
 
 /*

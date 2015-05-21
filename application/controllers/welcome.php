@@ -53,7 +53,9 @@ class Welcome extends KC_Controller {
 
 	private function _load_book() {
 		$load_book = array();
-		$db = $this->load->database('book', true);
+
+		$book_config = dbclass::book();
+		$db = $this->load->database($book_config['dsn'], true);
 
 		$heat_book_sql = "SELECT * FROM kc_book WHERE 1";
 		$heat_book = $db->query($heat_book_sql);
@@ -86,9 +88,11 @@ class Welcome extends KC_Controller {
 
 		//分类查询
 		if (!Mcache::read('MCACHE_BOOK_TERMS')) {
-			$term = $db->get('book_terms');
-			$term = $term->result_array();
-			Mcache::write('MCACHE_BOOK_TERMS', $term, 86400);
+			$term = $db->get('kc_book_terms');
+			if (is_object($term) && !$term && $term->num_rows() >0) {
+				$term = $term->result_array();
+				Mcache::write('MCACHE_BOOK_TERMS', $term, 86400);
+			}
 		}
 		$term = Mcache::read('MCACHE_BOOK_TERMS');
 

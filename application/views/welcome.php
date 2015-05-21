@@ -34,7 +34,7 @@
 </head>
 </head>
 <body>
-<?php $this->load->view('header') ?>
+<?php $this->load->view('header', array('is_login' => false)) ?>
 <div id="content_login">
 	<div class="warpper">
 		<div class="warpper_pic">

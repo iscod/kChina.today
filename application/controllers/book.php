@@ -11,18 +11,40 @@ class Book extends KC_Controller {
 	*book index
 	*/
 	public function index(){
-		$query = array(
-			0 => array('bookid'=>1),
-			1 => array('bookid'=>2)
-		);
-		foreach ($query as $key => $value) {
-			$book = array(
-				'book_id' => $value['bookid'],
-			);
-			$books[] = $book;
-		}
+
+		$book_config = dbclass::book();
+		$db = $this->load->database($book_config['dsn'], true);
+
+		$this->load->model('book_model');
+		$book_recomm = $this->book_model->get_book_recommend();
+
+		// var_dump($book_recomm);
+		// $heat_book_sql = "SELECT * FROM `kc_book` WHERE 1 LIMIT 0,5";
+		// $heat_book = $db->query($heat_book_sql);
+		// $heat_book = $heat_book->result_array();
+
+		// $books = Mcache::read('Mcache');
+		// if () {
+		// 	# code...
+		// }
+
+		// foreach ($books as $key => $value) {
+		// 	# code...
+		// }
+
+		// $db->query('SETER ');
+		// $query = array(
+		// 	0 => array('bookid'=>1),
+		// 	1 => array('bookid'=>2)
+		// );
+		// foreach ($query as $key => $value) {
+		// 	$book = array(
+		// 		'book_id' => $value['bookid'],
+		// 	);
+		// 	$books[] = $book;
+		// }
 		$data = array(
-			'books' => $books
+			'books' => $book_recomm
 		);
 		$this->load->view('book/index', $data);
 	}
