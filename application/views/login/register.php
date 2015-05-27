@@ -9,6 +9,69 @@
 	<script type="text/javascript" src="http://js.<?php echo HOST_DOMAIN?>/js/less.min.js?var=<?php echo JS_VERSION ?>"></script>
 	<script type="text/javascript" src="http://js.<?php echo HOST_DOMAIN?>/js/kc_login.js?var=<?php echo JS_VERSION ?>"></script>
 	<script type="text/javascript" src="http://js.<?php echo HOST_DOMAIN?>/js/simlepop.js?var=<?php echo JS_VERSION ?>"></script>
+	<script src="http://js.<?php echo HOST_DOMAIN;?>/js/jquery.funnyText.js?var=<?php echo JS_VERSION ?>"></script>
+	<style>
+
+		.login_con h1{
+			display:block;
+			text-align:center;
+			color: #008448;
+			font-size: 2em;
+		}
+
+		.charWrap {
+		    display:inline-block;
+		    position:relative;
+		    overflow: hidden;
+		}
+		.funnyText span.left, 
+		.funnyText span.right,
+		.funnyText span.top,
+		.funnyText span.bottom {
+		    position:absolute;
+		}
+		.funnyText .charWrap {
+		    transition: all 0.4s ease-in-out;
+		    -webkit-transition: all 0.4s ease-in-out;/** Chrome & Safari **/
+		    -moz-transition: all 0.4s ease-in-out;/** Firefox **/
+		    -o-transition: all 0.4s ease-in-out;/** Opera **/
+		}
+		.funnyText .charWrap .top {
+		    top:0;
+		}
+		.funnyText .charWrap .left {
+		    left:0;
+		}
+		.funnyText .charWrap .right {
+		    right:0;
+		}
+		.funnyText .charWrap .bottom {
+		    bottom:0;
+		}
+		.funnyText .character {
+		    overflow:hidden;
+		    display:inline-block;
+		}
+
+		.login_con{
+			vertical-align: middle;
+		}
+	</style>
+	<!--[if IE]>
+		<script type="text/javascript">
+			 var console = { log: function() {} };
+		</script>
+	<![endif]-->
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('.login_con h1').funnyText({
+				speed: 700,
+				activeColor: '#fff',
+				color: '#008448',
+				fontSize: '1.5em'
+			});
+		});
+	</script>
 	<script type="text/javascript">
 		function kc_register_form(thisform){
 
@@ -18,31 +81,28 @@
 			if (login_name == null || login_name == '') {
 				thisform.login.focus();
 				return false;
-			};
+			}
 
-			apos = login_name.indexOf('@');
-			dot_pos = login_name.indexOf('.')
-
-			if ((apos > 1 || dot_pos < 2)) {
+			if ((apos < 1 || dot_pos < 2 || (dot_pos-apos) < 2)) {
 				art.alert('使用邮箱注册！');
 				thisform.login.focus();
 				return false;
-			};
+			}
 
-			pwd = thisform.pwd.value
-			next_pwd = thisform.next_pwd.value
+			pwd = thisform.pwd.value;
+			next_pwd = thisform.next_pwd.value;
 			
 			if (pwd.length < 6) {
 				$('#pwd_intensity').text("(客官不要玩我，低于六位密码是不会通过的。)");
 				thisform.pwd.focus();
 				return	 false;
-			};
+			}
 			if (pwd != next_pwd) {
 				$('#next_pwd').text("(客官，两次密码都不一样，让妹子怎么办？)");
 				thisform.next_pwd.focus();
 				return false;
-			};
-			// $(".submit").preventDefault();
+			}
+
 			$.post("/login/submit_register",{login:login_name,pwd:pwd,next_pwd:next_pwd},function(json){
 				if (parseInt(json.result) == 1) {
 					art.alert('就差一步了，到邮箱验证吧！');

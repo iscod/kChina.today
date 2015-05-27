@@ -1,27 +1,27 @@
 function validate_log(log){
-	if (log == null || log == '') {
+	if (log == 'undefined' || log == '') {
 		return false;
-	};
+	}
 
 	apos = log.indexOf('@');
-	dot_pos = log.indexOf('.')
+	dot_pos = log.indexOf('.');
 	
 	if ((apos > 1 && dot_pos < 1)) {
 		art.alert('您似乎使用邮箱登陆，但填写的不正确！');
 		return false;
-	};
+	}
 
 	return true;
 }
 function validate_pwd (pwd) {
-	if (pwd == null || pwd =='') {
+	if (pwd == null || pwd == '') {
 		return false;
-	};
+	}
 
 	if (pwd.length < 6) {
-		art.alert('用户名或密码不正确！')
+		art.alert('用户名或密码不正确！');
 		return false;
-	};
+	}
 
 	return true;
 }
@@ -39,7 +39,6 @@ function kc_login_form(thisform){
 		thisform.pwd.focus();
 		return false;
 	}
-	
 	if (is_type && is_pwd) {
 		$.post("login/kc_login",
 		{
@@ -50,14 +49,16 @@ function kc_login_form(thisform){
 		function(json) {
 			if (json.result == 1) {
 				art.alert(json.msg);
-				// top.location='/';
-			} else if(json.result == -1) {
-				art.alert(json.msg);
-			} else if(json.result == -2) {
+				if (thisform.redirect_to == 'undefined') {
+					thisform.redirect_to = '';
+				}
+				top.location=thisform.redirect_to.value;
+				
+			} else {
 				art.alert(json.msg);
 			}
 		}, 'json');
 		return false;
-	};
+	}
 	return false;
 }

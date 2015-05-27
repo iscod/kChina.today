@@ -20,7 +20,7 @@ class Welcome extends KC_Controller {
 	
 	public function __construct()
 	{
-		parent::__construct(TRUE, FALSE);
+		parent::__construct(FALSE, FALSE);
 	}
 
 	public function index()

@@ -7,6 +7,11 @@
 */
 class Login extends KC_Controller {
 
+	public function __construct()
+	{
+		parent::__construct(FALSE, FALSE);
+	}
+
 	/**
 	*@author iscod
 	*login for index
@@ -46,7 +51,15 @@ class Login extends KC_Controller {
 
 		$this->load->model('user_model');
 
-		$uid = $this->user_model->get_by_username($user_login);
+		if (strstr($user_login, "@")) {
+			if (!preg_match("/([\w\-]+\@[\w\-]+\.[\w\-]+)/",$user_login)) {
+				echo json_return(RESPONSE_ERROR, '亲，邮箱格式都不正确！');
+				return false;
+    		}
+    		$uid = $this->user_model->get_by_email($user_login);
+		}else{
+			$uid = $this->user_model->get_by_username($user_login);
+		}
 
 		if (!$uid) {
 			echo json_return(RESPONSE_LOGIN, '查无此人？');

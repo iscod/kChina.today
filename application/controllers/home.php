@@ -3,15 +3,16 @@
 class Home extends KC_Controller {
 	public function __construct()
 	{
-		parent::__construct(FALSE, FALSE);
+		parent::__construct(TRUE, FALSE);
 	}
 
-	public function my($uid) {
+	public function my() {
+		if (!$this->uid) return false;
 
-		$uid = intval($uid);
-		if (!$uid) return false;
+		$this->load->model('user_model');
+		$userinfo = $this->user_model->get_by_uid($this->uid);
+		var_dump($userinfo);
 
-		var_dump($uid);
-
+		$this->load->view('home/my');
 	}
 }

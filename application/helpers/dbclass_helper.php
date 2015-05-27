@@ -39,7 +39,7 @@ class Dbclass {
 
 
 	public static function user($uid) {
-		$host_config = self::$user_config;
+		$host_config = self::$user_host;
 
 		if (!isset($host_config['user'])) $host_config['user'] = self::$user;
 		if (!isset($host_config['pwd'])) $host_config['pwd'] = self::$pwd;

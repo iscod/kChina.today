@@ -7,6 +7,7 @@
 	<script type="text/javascript" src="http://js.<?php echo HOST_DOMAIN?>/js/jquery.min.js?var=<?php echo JS_VERSION ?>"></script>
 	<script src="http://js.<?php echo HOST_DOMAIN?>/js/less.min.js?var=<?php echo JS_VERSION?>"></script>
 	<script src="http://js.<?php echo HOST_DOMAIN?>/js/jquery.fullPage.js?var=<?php echo JS_VERSION?>"></script>
+	<script type="text/javascript" src="http://js.<?php echo HOST_DOMAIN;?>/js/simlepop.js?var=<?php echo JS_VERSION ?>"></script>
 	<script type="text/javascript" src="http://js.<?php echo HOST_DOMAIN?>/js/kc_login.js?var=<?php echo JS_VERSION ?>"></script>
 	<script src="http://js.<?php echo HOST_DOMAIN?>/js/jquery.slimscroll.js?var=<?php echo JS_VERSION?>"></script>
 	<script src="http://js.<?php echo HOST_DOMAIN?>/js/jquery.easings.min.js?var=<?php echo JS_VERSION?>"></script>
@@ -90,7 +91,7 @@
 </head>
 <body>
 	<div class="fullpageheader">
-		<?php $this->load->view('header') ?>
+		<?php $this->load->view('header')?>
 	</div>
 	<div id="fullpage">
 		<?php foreach ($books as $key => $book) : ?>
@@ -116,7 +117,7 @@
 		    		<div class="booktitle">平凡的世界</div>
 		    		<div class="booknew">
 		    			<div class="bookauthor">路遥</div>
-		    			<div class="booktime">出版时间：2010年</div>
+		    			<div class="booktime">出版时间：2010年</div>~
 		    			<div class="bookcommend">一部对时代人生爱情的伟大阐释</div>
 		    			<div class="bookregistered">分享时间：2015-02-38 11:46:28</div>
 		    			<div class="bookheat">人气：10</div>
@@ -158,4 +159,3 @@
 	</div>
 </body>
 </html>
-
