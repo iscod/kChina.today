@@ -21,7 +21,7 @@
 		</form>
 	</div>
 	<?php endif;?>
-	<?php if (isset($userinfo) || is_array($userinfo)) : ?>
+	<?php if (isset($userinfo) && is_array($userinfo)) : ?>
 		<div class="header_user">
 			<?php //var_dump($userinfo);?>
 			<span class="header_user"><?php echo $userinfo['user_login']?></span>
