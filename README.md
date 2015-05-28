@@ -13,3 +13,4 @@ kChina.today使用HTML5,css3,LessCSS,jQuery,jQuery.easing,php5,redis,macache
 kChina.today的安装配置追寻CI框架。
 system和application两个文件夹与网站根目录同级
 主目录下index.php文件$system_path和$application_folder两个变量，请设置为相应的目录
+测试key
