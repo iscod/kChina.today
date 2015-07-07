@@ -3,8 +3,7 @@
 class Book extends KC_Controller {
 	public function __construct()
 	{
-		parent::__construct(FALSE, TRUE);
-  		$this->load->helper(array('form', 'url'));
+		parent::__construct(TRUE, FALSE);
 	}
 
 	/**
@@ -46,12 +45,11 @@ class Book extends KC_Controller {
 		$data = array(
 			'books' => $book_recomm
 		);
-		if (!$this->uid) {
-			$data['is_login'] = true;
-		}else{
+		if ($this->uid) {
 			$this->load->model('user_model');
-			$userinfo = $this->user_model->get_by_uid($this->uid);
-			$data['userinfo'] = $userinfo;
+			$user_info = $this->user_model->get_by_uid($this->uid);
+			$data['uid'] = $this->uid;
+			$data['user_info'] = $user_info;
 		}
 
 		$this->load->view('book/index', $data);
@@ -68,6 +66,13 @@ class Book extends KC_Controller {
 			'bookid' => $bookid,
 			'book_info' => $book_info,
 		);
+
+		if ($this->uid) {
+			$this->load->model('user_model');
+			$user_info = $this->user_model->get_by_uid($this->uid);
+			$data['uid'] = $this->uid;
+			$data['user_info'] = $user_info;
+		}
 
 		$this->load->view('book/book', $data);
 	}

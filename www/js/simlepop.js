@@ -3,14 +3,24 @@
 */
 var art = {
 	//msg:is alert title,arg is click ok function
-	alert : function(msg, arg) {
+	alert : function(title, msg) {
 		var alertDefaults = {
 			popType: 'alert',
-			title: '提示',
+			title: title,
 			content: '<div class="layer_msg"><p>' + (msg === undefined ? "" :msg) + '</p><button id="simplePopBtnSure">确定</button></div>',
-			callback : function() {
-
-			}
+		}
+		var opt = $.extend({}, this._defaults, alertDefaults);
+		this._creatLayer(opt)
+	},
+	dialog : function (title, msg, arg, btitle){
+		if (btitle == null || btitle == undefined) {
+			btitle = '确定';
+		}
+		var alertDefaults = {
+			popType: 'dialog',
+			title: title,
+			content: '<div class="layer_msg"><p>' + (msg === undefined ? "" :msg) + '</p><button id="simplePopBtnSure">' + btitle + '</button></div>',
+			callback : arg
 		}
 		var opt = $.extend({}, this._defaults, alertDefaults,arg);
 		this._creatLayer(opt)
@@ -97,6 +107,15 @@ var art = {
 				$("#simplePopBtnSure").bind("click", function() {
 					// opt.callback();
 					self._closeLayer()
+				});
+				break;
+			case "dialog":
+				$popMain.fadeIn(opt.duration, function() {
+					$popMain.attr("style", $popMain.attr("style").replace("FILTER:", ""))
+				});
+				$("#simplePopBtnSure").bind("click", function() {
+					self._closeLayer()
+					opt.callback();
 				});
 				break;
 			case "confirm":

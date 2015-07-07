@@ -14,16 +14,6 @@
 	  float: right;
 }
 /*book index*/
-.fullpageheader{
-	position: fixed;
-	filter:alpha(opacity=50);
-	background: #fff;
-	background: rgba(255, 255, 255, 0.5);
-	z-index: 999;
-	width: 100%;
-	height: initial;
-	border-bottom: 1px double #D7D7D7;
-}
 .section {
 	color: #0D0D0D;
 }

@@ -20,7 +20,7 @@ class Welcome extends KC_Controller {
 	
 	public function __construct()
 	{
-		parent::__construct(FALSE, FALSE);
+		parent::__construct(TRUE, FALSE);
 	}
 
 	public function index()
@@ -29,13 +29,11 @@ class Welcome extends KC_Controller {
 	}
 
 	public function load() {
-
 		$this->load->model('user_model');
 
 		$user_info = $this->user_model->get_by_uid($this->uid);
 
 		$page_info = array();
-		$user_info = array();
 
 		$load_book = $this->_load_book();
 
@@ -43,7 +41,6 @@ class Welcome extends KC_Controller {
 			'uid' => $this->uid,
 			'user_info' => $user_info,
 			'page_info' => $page_info,
-			'user_info' => $user_info,
 			'load_book' => $load_book,
 			'server_id' => SERVERID
 		);

@@ -4,6 +4,7 @@
 <title>kchina</title>
 <script type="text/javascript" src="http://js.<?php echo HOST_D0MIN?>/js/jquery.min.js"></script>
 <script type="text/javascript" src="http://js.<?php echo HOST_D0MIN?>/js/jquery.easing.1.3.js"></script>
+<script src="http://js.<?php echo HOST_DOMAIN?>/js/global.js?var=<?php echo JS_VERSION?>"></script>
 <script type="text/javascript" src="http://js.<?php echo HOST_D0MIN?>/js/less.min.js"></script>
 <script type="text/javascript" src="http://js.<?php echo HOST_D0MIN?>/quojs/quo.js"></script>
 <script type="text/javascript" src="http://js.<?php echo HOST_D0MIN?>/quojs/quo.css.js"></script>

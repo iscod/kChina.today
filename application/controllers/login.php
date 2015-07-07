@@ -66,14 +66,14 @@ class Login extends KC_Controller {
 			return false;
 		}
 
-		$user_info = $this->user_model->get_by_uid($uid);
+		$user_pass = $this->user_model->get_pass_by_uid($uid);
 
-		if (!$user_info) {
+		if (!$user_pass) {
 			echo json_return(RESPONSE_LOGIN, '查无此人？');
 			return false;
 		}
 
-		if ($user_info['user_pass'] != $pwd) {
+		if ($user_pass != $pwd) {
 			echo json_return(RESPONSE_PASS_ERROR, '还好，设置了密码，but，密码不对！');
 			return false;
 		}

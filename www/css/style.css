@@ -1,5 +1,5 @@
 body,html {
-	font: 12px Helvetica,Arial,sans-serif;
+	font: 14px Helvetica,Arial,sans-serif;
 	line-height: 1.62;
 	margin: 0;
 	padding: 0;
@@ -7,7 +7,7 @@ body,html {
 body.login{
 	background: #f1f1f1;
 }
-h1,h2,h3,h4,h5,h6,a,img,table,b,span,button,p,ul,ol,li{
+h1,h2,h3,h4,h5,h6,a,img,table,b,span,button,p,ul,ol,li,div{
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -105,19 +105,38 @@ a:active {
 	background-position: 0 -11px;
 }
 .level50 {
-	background-position: 0 0px;
+	background-position: 0 0;
+}
+.div_inline {
+	display: inline-block;
 }
 /***********header start******************/
+.fullpageheader {position: fixed;
+	filter: alpha(opacity=50);
+	background: #fff;
+	background: rgba(255, 255, 255, 0.5);
+	z-index: 999;
+	width: 100%;
+	height: initial;
+	border-bottom: 1px double #D7D7D7;
+}
 .header{
 	margin: 0 auto;
 	max-width: 960px;
+}
+.header h1.div_inline{
+	font-size: 1.4em;
+	margin: 10px 20px;
 }
 .header li {
 	display: inline-block;
 	#display: inline;
 }
+.header .user_name {
+	cursor: pointer;
+}
 .head_login {
-	margin: -50px 0 0px 0;
+	margin: -50px 0 0 0;
 	padding: 0;
 	float: right;
 }
@@ -133,7 +152,17 @@ a:active {
 	background: rgba(255, 255, 255, 0.4);
 	border: 1px double #D7D7D7;
 }
-
+.header_user {
+	float: right;
+	margin: -36px 0 0 0;
+}
+.header_user .js_login_wrpe {
+	display: none;
+	position: absolute;
+}
+.header_user .js_login_wrpe li {
+	display: block;
+}
 /********content start**********/
 .content_register {
 	margin: 3% auto;

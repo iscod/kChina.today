@@ -77,15 +77,15 @@
 
 			login_name = thisform.login.value;
 
-
 			if (login_name == null || login_name == '') {
 				thisform.login.focus();
 				return false;
 			}
 
-			if ((apos < 1 || dot_pos < 2 || (dot_pos-apos) < 2)) {
-				art.alert('使用邮箱注册！');
-				thisform.login.focus();
+			is_type = validate_log(login_name, true);
+
+			if (is_type == false) {
+				art.alert('提示', '请使用邮箱！');
 				return false;
 			}
 
@@ -95,19 +95,18 @@
 			if (pwd.length < 6) {
 				$('#pwd_intensity').text("(客官不要玩我，低于六位密码是不会通过的。)");
 				thisform.pwd.focus();
-				return	 false;
+				return false;
 			}
 			if (pwd != next_pwd) {
 				$('#next_pwd').text("(客官，两次密码都不一样，让妹子怎么办？)");
 				thisform.next_pwd.focus();
 				return false;
 			}
-
 			$.post("/login/submit_register",{login:login_name,pwd:pwd,next_pwd:next_pwd},function(json){
 				if (parseInt(json.result) == 1) {
-					art.alert('就差一步了，到邮箱验证吧！');
+					art.alert('提示', '就差一步了，到邮箱验证吧！');
 				}else{
-					art.alert(json.msg);
+					art.alert('提示', json.msg);
 				}
 			}, 'json');
 			return false;

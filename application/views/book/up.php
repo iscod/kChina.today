@@ -6,6 +6,7 @@
 	<meta name="description" content="免费图书、分享旅行、爱情、话题的文化长廊">
 	<link rel="stylesheet" id="dashicons-css" href="../css/style.css?ver=<?php echo CSS_VERSION?>" type="text/css" media="all">
 	<script type="text/javascript" src="../js/jquery.min.js?var=<?php echo JS_VERSION ?>"></script>
+	<script src="http://js.<?php echo HOST_DOMAIN?>/js/global.js?var=<?php echo JS_VERSION?>"></script>
 	<script src="../js/less.min.js?var=<?php echo JS_VERSION ?>"></script>
 	<script type="text/javascript" src="../js/kc_login.js?var=<?php echo JS_VERSION ?>"></script>
 	<script type="text/javascript" src="../js/simlepop.js?var=<?php echo JS_VERSION ?>"></script>

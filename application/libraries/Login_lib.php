@@ -7,23 +7,24 @@
 class Login_lib {
 	
 	private $auth_key = 'KC_LOGIN_AUTH_KEY';
-	
+	private $session_keys = array('KC_AUTH', 'KC_USER');
+
 	public function init_login() {
 		if (!session_start()) {
 			die('Session Start Fail');
 		}
 
 		if (empty($_COOKIE['KC_AUTH']) || empty($_COOKIE['KC_USER']) ) {
-			session_unset();
+			$this->_unset_login_session();
 			return false;
 		}
 		
-		if (!empty($_SESSION['KC_AUTH']) && $_COOKIE['KC_AUTH'] == $this->_login_auth($_COOKIE['KC_USER'])) {
+		if (!empty($_SESSION['KC_AUTH']) && $_SESSION['KC_AUTH'] == $_COOKIE['KC_AUTH'] && $_COOKIE['KC_AUTH'] == $this->_login_auth($_COOKIE['KC_USER'])) {
 			return true;
 		}
 
 		if ($_COOKIE['KC_AUTH'] != $this->_login_auth($_COOKIE['KC_USER'])) {
-			session_unset();
+			$this->_unset_login_session();
 			return fasle;
 		}
 
@@ -32,7 +33,7 @@ class Login_lib {
 		parse_str($user_str, $user_info);
 
 		if (!is_array($user_info)) {
-			session_unset();
+			$this->_unset_login_session();
 			return false;
 		}
 
@@ -45,7 +46,7 @@ class Login_lib {
 		return true;
 	}
 
-	public function set_cookie_login($uid, $login_time = 3600) {
+	public function set_cookie_login($uid, $login_time = 7200) {
 		$CI = & get_instance();
 		$CI->load->model('user_model');
 
@@ -72,10 +73,12 @@ class Login_lib {
 
 		$kc_auth = $this->_login_auth($package);
 
-		setcookie('KC_AUTH', $kc_auth, $time, '/');
-		setcookie('KC_USER', $package, $time, '/');
+		$session_keys = $this->session_keys;
 
-		return TRUE;
+		setcookie($session_keys[0], $kc_auth, $time, '/');
+		setcookie($session_keys[1], $package, $time, '/');
+
+		return true;
 	}
 
 	/*
@@ -87,5 +90,16 @@ class Login_lib {
 		$key = base64_encode($this->auth_key);
 
 		return sha1(md5($userinfo_package . $key));
+	}
+	/**
+	*删除cookie
+	*/
+	private function _unset_login_session() {
+		$session_keys = $this->session_keys;
+
+		foreach ($session_keys as $value) {
+			setcookie($value, '' , time()-3600);
+		}
+		return true;
 	}
 }

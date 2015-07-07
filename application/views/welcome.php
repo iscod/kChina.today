@@ -6,10 +6,14 @@
 	<meta name="description" content="免费图书、分享旅行、爱情、话题的文化长廊">
 	<link rel="stylesheet" id="dashicons-css" href="http://css.<?php echo HOST_DOMAIN?>/css/style.css?ver=<?php echo CSS_VERSION?>" type="text/css" media="all">
 	<script type="text/javascript" src="http://js.<?php echo HOST_DOMAIN?>/js/jquery.min.js?var=<?php echo JS_VERSION ?>"></script>
+	<script src="http://js.<?php echo HOST_DOMAIN?>/js/global.js?var=<?php echo JS_VERSION?>"></script>
 	<script src="http://js.<?php echo HOST_DOMAIN?>/js/less.min.js?var=<?php echo JS_VERSION ?>"></script>
 	<script type="text/javascript" src="http://js.<?php echo HOST_DOMAIN?>/js/kc_login.js?var=<?php echo JS_VERSION ?>"></script>
 	<script type="text/javascript" src="http://js.<?php echo HOST_DOMAIN;?>/js/simlepop.js?var=<?php echo JS_VERSION ?>"></script>
 	<script type="text/javascript" scr="http://js.<?php echo HOST_DOMAIN;?>/js/websocket.js?var=<?php echo JS_VERSION ?>"></script>
+	<style type="text/css">
+		.head_login{display: none;}
+	</style>
 	<script type="text/javascript">
 		//websocrt尽在html支持时
 
@@ -34,7 +38,8 @@
 </head>
 </head>
 <body>
-<?php $this->load->view('header', array('is_login' => false)) ?>
+<?php $this->load->view('header') ?>
+<?php if(!$this->uid): ?>
 <div id="content_login">
 	<div class="warpper">
 		<div class="warpper_pic">
@@ -62,6 +67,7 @@
 		</div>
 	</div>
 </div>
+<?php endif;?>
 <div id="content_travel" class="section_con">
 	<div class="warpper">
 		<div class="warpper_nav">
