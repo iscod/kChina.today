@@ -24,6 +24,11 @@ class Traver extends KC_Controller {
 		$data = array(
 			'travers' => $travers
 		);
+		if ($this->uid) {
+			$this->load->model('user_model');
+			$user_info = $this->user_model->get_by_uid($this->uid);
+			$data['user_info'] = $user_info;
+		}
 		$this->load->view('traver/index', $data);
 	}
 }

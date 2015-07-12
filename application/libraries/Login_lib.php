@@ -81,6 +81,14 @@ class Login_lib {
 		return true;
 	}
 
+	public function logout(){
+		$session_keys = $this->session_keys;
+		foreach ($session_keys as $value) {
+			setcookie($value, '', time() - 7200, '/');
+		}
+		return true;
+	}
+
 	/*
 	*auth login for cookie
 	*/
@@ -95,11 +103,15 @@ class Login_lib {
 	*删除cookie
 	*/
 	private function _unset_login_session() {
-		$session_keys = $this->session_keys;
-
-		foreach ($session_keys as $value) {
-			setcookie($value, '' , time()-3600);
+		$session_key = array(
+			'KC_UID',
+			'KC_USERNAME',
+			'KC_SYSTIME',
+		);
+		foreach ($session_key as $skey) {
+			unset($_SESSION[$skey]);
 		}
+
 		return true;
 	}
 }

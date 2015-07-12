@@ -5,11 +5,11 @@
 	<title>Welcome kChina</title>
 	<meta name="description" content="免费图书、分享旅行、爱情、话题的文化长廊">
 	<link rel="stylesheet" id="dashicons-css" href="../css/style.css?ver=<?php echo CSS_VERSION?>" type="text/css" media="all">
-	<script type="text/javascript" src="../js/jquery.min.js?var=<?php echo JS_VERSION ?>"></script>
+	<script type="text/javascript" src="http://js.<?php echo HOST_DOMAIN?>/js/jquery.min.js?var=<?php echo JS_VERSION ?>"></script>
 	<script src="http://js.<?php echo HOST_DOMAIN?>/js/global.js?var=<?php echo JS_VERSION?>"></script>
-	<script src="../js/less.min.js?var=<?php echo JS_VERSION ?>"></script>
-	<script type="text/javascript" src="../js/kc_login.js?var=<?php echo JS_VERSION ?>"></script>
-	<script type="text/javascript" src="../js/simlepop.js?var=<?php echo JS_VERSION ?>"></script>
+	<script src="http://js.<?php echo HOST_DOMAIN?>/js/less.min.js?var=<?php echo JS_VERSION ?>"></script>
+	<script type="text/javascript" src="http://js.<?php echo HOST_DOMAIN?>/js/kc_login.js?var=<?php echo JS_VERSION ?>"></script>
+	<script type="text/javascript" src="http://js.<?php echo HOST_DOMAIN?>/js/simlepop.js?var=<?php echo JS_VERSION ?>"></script>
 	<style type="text/css">
 		.book_up_content {  margin: 0 auto; max-width: 960px;}
 	</style>
@@ -60,7 +60,7 @@
 	</script>
 </head>
 </head>
-<body>
+<body class="kc">
 <?php $this->load->view('header') ?>
 <div class="book_up_content">
 	<iframe frameborder="0" name="i" src="/book/upload_form" style="width: 100%;min-height: 300px;border: 0;">

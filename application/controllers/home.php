@@ -3,16 +3,29 @@
 class Home extends KC_Controller {
 	public function __construct()
 	{
-		parent::__construct(TRUE, FALSE);
+		parent::__construct(TRUE, TRUE);
 	}
 
 	public function my() {
 		if (!$this->uid) return false;
 
 		$this->load->model('user_model');
-		$userinfo = $this->user_model->get_by_uid($this->uid);
-		var_dump($userinfo);
+		$user_info = $this->user_model->get_by_uid($this->uid);
+		$data = array(
+			'user_info' => $user_info
+			);
+		$this->load->view('home/my', $data);
+	}
 
-		$this->load->view('home/my');
+	public function logout(){
+		if (!$this->uid) return true;
+		$this->load->library('login_lib');
+		$logout = $this->login_lib->logout();
+		if ($logout) {
+			header("location: /");
+		}else{
+			header("location: /home/my");
+		}
+
 	}
 }

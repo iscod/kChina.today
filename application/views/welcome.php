@@ -11,9 +11,6 @@
 	<script type="text/javascript" src="http://js.<?php echo HOST_DOMAIN?>/js/kc_login.js?var=<?php echo JS_VERSION ?>"></script>
 	<script type="text/javascript" src="http://js.<?php echo HOST_DOMAIN;?>/js/simlepop.js?var=<?php echo JS_VERSION ?>"></script>
 	<script type="text/javascript" scr="http://js.<?php echo HOST_DOMAIN;?>/js/websocket.js?var=<?php echo JS_VERSION ?>"></script>
-	<style type="text/css">
-		.head_login{display: none;}
-	</style>
 	<script type="text/javascript">
 		//websocrt尽在html支持时
 
@@ -37,37 +34,8 @@
 	</script>
 </head>
 </head>
-<body>
+<body class="kc">
 <?php $this->load->view('header') ?>
-<?php if(!$this->uid): ?>
-<div id="content_login">
-	<div class="warpper">
-		<div class="warpper_pic">
-			<h1><?php echo HOST_DOMAIN?></h1>
-			<div class="warpper_des">一次说走就走的旅行，一场奋不顾身的爱情</div>
-		</div>
-		<div class="warpper_login">
-			<!-- action="/login/kc_login" method="post" -->
-			<form action="/login/kc_login" method="post" onsubmit="return kc_login_form(this);">
-				<div class="login_input">
-					<p>
-						<bookmark-label for='user_login'><input class="input" type="text" name='login' size='20' placeholder="邮箱"></input></bookmark-label>
-					</p>
-					<p>
-						<bookmark-label for='user_pass'><input class="input" type="password" name="pwd" size='20' placeholder="密码"></input></bookmark-label>
-					</p>
-					<p>
-						<input class="submit" type="submit" name="submit" value="登录">
-						<input type="hidden" name="redirect_to" value="http://www.<?php echo HOST_DOMAIN;?>">
-						<input type="hidden" name="textcookie" value="1">
-						<a target="_blank" href="/login/register">注册</a>
-					</p>
-				</div>
-			</form>
-		</div>
-	</div>
-</div>
-<?php endif;?>
 <div id="content_travel" class="section_con">
 	<div class="warpper">
 		<div class="warpper_nav">

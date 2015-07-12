@@ -7,6 +7,9 @@ body,html {
 body.login{
 	background: #f1f1f1;
 }
+body.kc{
+	padding-top: 54px;
+}
 h1,h2,h3,h4,h5,h6,a,img,table,b,span,button,p,ul,ol,li,div{
 	margin: 0;
 	padding: 0;
@@ -111,11 +114,14 @@ a:active {
 	display: inline-block;
 }
 /***********header start******************/
-.fullpageheader {position: fixed;
+.fullpageheader {
+	position: fixed;
+	top: 0px;
+	height: 54px;
 	filter: alpha(opacity=50);
 	background: #fff;
-	background: rgba(255, 255, 255, 0.5);
-	z-index: 999;
+	background: rgba(232, 232, 232, 0.8);
+	z-index: 10;
 	width: 100%;
 	height: initial;
 	border-bottom: 1px double #D7D7D7;
@@ -202,44 +208,14 @@ a:active {
 	border-left: 1px dashed #bdbdbd;
 	margin-left: 40px;
 }
-#content_login {
-	background: #EBF8FA;
-	margin: 20px 0;
-	padding: 20px 0;
-}
-#content_login .warpper_pic {
-	width: 50%;
-	text-indent: 50px;
-	text-align: right;
+
+a.register{
 	display: inline-block;
-	#float: left;
-	position: relative;
- 	top: -20px;
-	#margin-top: 50px;
-}
-#content_login .warpper_pic h1,.warpper_des{
-	color: #0E5D69;
-	font: 24px Arial,Helvetica,sans-serif;
-	padding: 0px 60px 0 0;
-}
-#content_login .warpper_des {
-	font-size: 14px;
-	margin-top: 20px;
-}
-#content_login .warpper_login {
-	border-left: 1px dashed #D7D7D7;
-	padding: 0 0 0 80px;
-	display: inline-block;
-}
-.warpper_login a {
-	display: inline-block;
-	height: 20px;
-	width: 60px;
-	padding: 2px 0 0 0;
-	border: 1px solid #F0ADAD;
+	height: 23px;
+	width: 56px;
 	text-align: center;
 }
-.warpper_login a:hover {
+a.register:hover {
 	color: #008448;
 	background: none;
 }

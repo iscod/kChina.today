@@ -92,9 +92,7 @@
 	</style>
 </head>
 <body>
-	<div class="fullpageheader">
-		<?php $this->load->view('header')?>
-	</div>
+	<?php $this->load->view('header')?>
 	<div id="fullpage">
 		<?php foreach ($books as $key => $book) : ?>
 			<div class="section section_<?php echo $key?>" style="background:url(http://img.<?php echo HOST_DOMAIN?>/image/book/bg_section_<?php echo $key?>.jpg?var=<?php echo IMG_VERSION?>) 0% 0% no-repeat #f7f7f7">

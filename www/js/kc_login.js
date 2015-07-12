@@ -54,9 +54,9 @@ function kc_login_form(thisform){
 		function(json) {
 			if (json.result == 1) {
 				if (thisform.redirect_to == 'undefined') {
-					thisform.redirect_to = '';
+					thisform.redirect_to = '/';
 				}
-				art.dialog('提示', json.msg, function(){top.location=thisform.redirect_to.value;}, '跳到首页');
+				top.location=thisform.redirect_to.value;
 			} else {
 				art.alert('提示', json.msg);
 			}
@@ -65,3 +65,10 @@ function kc_login_form(thisform){
 	}
 	return false;
 }
+$(function(){
+	$('.header_user').hover(function(){
+		$(".js_login_wrpe").show();
+	}, function(){
+		$(".js_login_wrpe").hide();
+	})
+})
