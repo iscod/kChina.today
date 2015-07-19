@@ -83,13 +83,13 @@
 <body class="login">
 	<div class="login_con">
 		<h1><?php echo HOST_DOMAIN;?></h1>
-		<form name="loginform" id="loginform" action="/login/kc_login" method="post" onsubmit="return kc_login_form(this);">
+		<form name="loginform" id="loginform" method="post" onsubmit="return kc_login_form(this, 2);">
 			<div class="login_input">
 				<p>
-					<bookmark-label for='user_login'>用户名：<input class="input" type="text" name='login' size='20'></input></bookmark-label>
+					<bookmark-label for='user_login'>用户名：<input class="input" type="text" name='login' size='20' 	oninput="$('.login_error').remove();" onpropertychange="$('.login_error').remove();"></input></bookmark-label>
 				</p>
 				<p>
-					<bookmark-label for='user_pass'>密码 ：<input class="input" type="password" name="pwd" size='20'></input></bookmark-label>
+					<bookmark-label for='user_pass'>密码 ：<input class="input" type="password" name="pwd" size='20' 	oninput="$('.pwd_error').remove();" onpropertychange="$('.pass_error').remove();"></input></bookmark-label>
 				</p>
 				<p>
 					<input class="submit" type="submit" name="submit" value="登录">

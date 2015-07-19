@@ -17,17 +17,17 @@
 			<span class="user_name"><?php echo $user_info['user_login']?></span>
 			<div class="js_login_wrpe">
 				<ul>
-					<li><a href="/home/my" target="_blank">用户中心</a></li>
-					<li><a href="#" target="_blank">我的kc</a></li>
+					<li><a href="/home/my" target="_blank">我的主页</a></li>
+					<li><a href="/setting/profile" target="_blank">设置</a></li>
 					<li><a href="/home/logout" traget="_blank">登出</a></li>
 				</ul>
 			</div>
 		</div>
 	<?php else: ?>
 		<div class="head_login">
-			<form action="/login/kc_login" method="post" onsubmit="return kc_login_form(this);">
-				<span><input class="input" type="text" name="login" placeholder="邮箱"></span>
-				<span><input class="input" type="password" name="pwd" placeholder="密码"></span>
+			<form method="post" onsubmit="return kc_login_form(this, 1);">
+				<span><input class="input" type="text" name="login" placeholder="手机号/邮箱" oninput="$('.login_error').remove();" onpropertychange="$('.login_error').remove();"></span>
+				<span><input class="input" type="password" name="pwd" placeholder="密码" oninput="$('.pwd_error').remove();" onpropertychange="$('.pwd_error').remove();"></span>
 				<span><input type="hidden" name="redirect_to" value=""><input type="hidden" name="textcookie" value="1"></span>
 				<span><input class="submit" type="submit" name="submit" value="登陆"></span>
 				<span><a class="register" target="_blank" href="/login/register">注册</a></span>

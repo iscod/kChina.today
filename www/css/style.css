@@ -10,12 +10,14 @@ body.login{
 body.kc{
 	padding-top: 54px;
 }
-h1,h2,h3,h4,h5,h6,a,img,table,b,span,button,p,ul,ol,li,div{
+h1,h2,h3,h4,h5,h6,a,img,table,b,span,button,p,ul,ol,li,div,i,em{
 	margin: 0;
 	padding: 0;
 	border: 0;
 }
-
+i{
+	vertical-align: middle;
+}
 ul,ol,li {
 	list-style: none;
 }
@@ -118,9 +120,9 @@ a:active {
 	position: fixed;
 	top: 0px;
 	height: 54px;
-	filter: alpha(opacity=50);
-	background: #fff;
-	background: rgba(232, 232, 232, 0.8);
+	filter: alpha(opacity=90);
+	background: rgb(232, 232, 232);
+	background: rgba(232, 232, 232, 0.9);
 	z-index: 10;
 	width: 100%;
 	height: initial;
@@ -133,16 +135,21 @@ a:active {
 .header h1.div_inline{
 	font-size: 1.4em;
 	margin: 10px 20px;
+	#float: left;
 }
 .header li {
 	display: inline-block;
 	#display: inline;
+}
+.header .nav_links {
+	#margin-top: 15px;
 }
 .header .user_name {
 	cursor: pointer;
 }
 .head_login {
 	margin: -50px 0 0 0;
+	#margin: -35px 0 0 0;
 	padding: 0;
 	float: right;
 }
@@ -222,7 +229,7 @@ a.register:hover {
 .section_con {
 	margin-bottom: 30px;
 	min-height: 200px;
-
+	clear: both;
 }
 .section_con:nth-child(2n) {
 	padding: 40px 0 20px;
@@ -321,6 +328,20 @@ a.register:hover {
 	display: inline-block;
 	#display: inline;
 }
+/*login error css*/
+.login_error{
+  position: absolute;
+  font-size: 12px;
+  color: red;
+}
+.pwd_error{
+  position: absolute;
+  font-size: 12px;
+  color: red;
+}
+label.login_error, label.pwd_error{
+	top: 16px;
+}
 /*popContent art 弹层样式*/
 .popMask {
 	position: fixed;
@@ -334,8 +355,13 @@ a.register:hover {
 	position: fixed;
 	overflow: hidden;
 	display: none;
-	font-size: 12px;
 	border-radius: 4px;
+}
+.popMain .layer_img{
+	height: 46px;
+	width: 50px;
+	display: block;
+	float: left;
 }
 .popMain .info_icon {
 	background: #F7F7F7 url(/image/info.gif) no-repeat 0 50%;
@@ -350,6 +376,7 @@ a.register:hover {
 	background: #F7F7F7 url(/image/confirm.gif) no-repeat 0 50%;
 }
 .popTitle {
+	font-size: 12px;
 	background: #1e8cbe;
 	border-bottom: 1px double #bdbdbd;
 	display: none;
@@ -380,24 +407,46 @@ a.register:hover {
 .popContent {
 	background: #F7F7F7;
 	overflow: auto;
-	padding: 20px 40px;
+	padding: 10px 20px;
 }
 .popContent .layer_msg {
-	padding-left: 80px;
 	max-width: 400px;
-	text-align: right;
+	min-width: 100px;
+	padding: 10px 40px;
+	float: left;
 }
-.popContent .layer_msg p {
+/*.popContent .layer_msg p {
 	font-weight: 700;
 	padding: 10px 0;
 	margin: 0;
 	font-size: 12px;
-}
+}*/
 .popContent .layer_msg input {
 	margin-bottom: 10px;
 	height: 20px;
 }
-.popContent .layer_msg button {
+/*.popContent .layer_msg button {
+	cursor: pointer;
+	padding: 5px 15px;
+	background-color: #1e8cbe;
+	color: #fff;
+	margin-left: 20px;
+	border: 1px solid #0074a2;
+}*/
+/*.popContent .layer_msg button:hover {
+	color: #ededed;
+	background-color: #0074a2;
+}
+.popContent .layer_msg button:active {
+	color: #f6f6f6;
+	background-color: #0074a2;
+}*/
+.popContent .popbutton{
+	float: right;
+	margin: 5px 0;
+	clear: both;
+}
+.popContent .popbutton button {
 	cursor: pointer;
 	padding: 5px 15px;
 	background-color: #1e8cbe;
@@ -405,11 +454,34 @@ a.register:hover {
 	margin-left: 20px;
 	border: 1px solid #0074a2;
 }
-.popContent .layer_msg button:hover {
+.popContent .popbutton button:hover {
 	color: #ededed;
 	background-color: #0074a2;
 }
-.popContent .layer_msg button:active {
+.popContent .popbutton button:active {
 	color: #f6f6f6;
 	background-color: #0074a2;
+}
+/**小标示**/
+.icon {
+	width: 16px;
+	height: 16px;
+	background: url(/image/icon.png) no-repeat;
+	background-size: 308px 250px;
+	display: inline-block;
+}
+.icon_adderss {
+	background-position: -57px -110px;
+}
+.icon_company{
+	background-position:-92px -110px;
+}
+.icon_education {
+	background-position:-111px -110px;
+}
+.icon_gender_man {
+	background-position: -144px -110px;
+}
+.icon_gender_woman {
+	background-position: -144px -110px;
 }

@@ -29,7 +29,7 @@ class Login extends KC_Controller {
 	public function kc_login() {
 
 		if ($this->uid) {
-			echo json_return(RESPONSE_OK, '女王大人，您已经在地球上了！');
+			echo json_return(RESPONSE_OK, '已经登录');
 			return true;
 		}
 
@@ -45,7 +45,7 @@ class Login extends KC_Controller {
 		}
 
 		if (empty($pwd)) {
-			echo json_return(RESPONSE_PASS_ERROR, '你好，出示一下密码！');
+			echo json_return(RESPONSE_PASS_ERROR, '请填写密码');
 			return false;
 		}
 
@@ -53,7 +53,7 @@ class Login extends KC_Controller {
 
 		if (strstr($user_login, "@")) {
 			if (!preg_match("/([\w\-]+\@[\w\-]+\.[\w\-]+)/",$user_login)) {
-				echo json_return(RESPONSE_ERROR, '亲，邮箱格式都不正确！');
+				echo json_return(RESPONSE_ERROR, '邮箱不正确');
 				return false;
     		}
     		$uid = $this->user_model->get_by_email($user_login);
@@ -62,19 +62,19 @@ class Login extends KC_Controller {
 		}
 
 		if (!$uid) {
-			echo json_return(RESPONSE_LOGIN, '查无此人？');
+			echo json_return(RESPONSE_LOGIN, '尚未注册');
 			return false;
 		}
 
 		$user_pass = $this->user_model->get_pass_by_uid($uid);
 
 		if (!$user_pass) {
-			echo json_return(RESPONSE_LOGIN, '查无此人？');
+			echo json_return(RESPONSE_LOGIN, '');
 			return false;
 		}
 
 		if ($user_pass != $pwd) {
-			echo json_return(RESPONSE_PASS_ERROR, '还好，设置了密码，but，密码不对！');
+			echo json_return(RESPONSE_PASS_ERROR, '用户名或密码错误');
 			return false;
 		}
 
@@ -82,11 +82,11 @@ class Login extends KC_Controller {
 		$user_login = $this->login_lib->set_cookie_login($uid);
 
 		if (!$user_login) {
-			echo json_return(RESPONSE_ERROR, '唉，网速不给力，还好李大大呼吁提高网速了。');
+			echo json_return(RESPONSE_ERROR, '网络异常');
 			return false;
 		}
 
-		echo json_return(RESPONSE_OK, '登月成功，拍张地球的全景照！');
+		echo json_return(RESPONSE_OK, '登录成功');
 		return true;
 
 	}

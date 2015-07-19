@@ -1,13 +1,15 @@
 /**
 *alert for kc
+*请尽量少使用弹窗这种交互方式
 */
 var art = {
-	//msg:is alert title,arg is click ok function
-	alert : function(title, msg) {
+	alert : function(title, msg, btitle, info) {
 		var alertDefaults = {
 			popType: 'alert',
 			title: title,
-			content: '<div class="layer_msg"><p>' + (msg === undefined ? "" :msg) + '</p><button id="simplePopBtnSure">确定</button></div>',
+			content: (msg === undefined ? "" :msg),
+			btitle: (btitle === undefined ? "确定": btitle),
+			info: (info === undefined ? "info" : info)
 		}
 		var opt = $.extend({}, this._defaults, alertDefaults);
 		this._creatLayer(opt)
@@ -67,14 +69,23 @@ var art = {
 			}
 		});
 		$mask.fadeIn(opt.duration);
+
+		//弹窗的基本样式
 		var wrap = "<div class='popMain'>";
 		wrap += "<div class='popTitle'>" + (opt.icon !== undefined && opt.icon !== "" ? "<img class='icon' src='" +
 			opt.icon + "' />" : "") + "<span class='text'>" + opt.title + "</span><span class='close'>&times;</span></div>";
-		wrap += "<div class='popContent'>" + opt.content + "</div>";
+			wrap += "<div class='popContent'>";
+				wrap += "<div class='layer_img'></div>";
+				wrap += "<div class='layer_msg'><p>" + opt.content + "</p></div>";
+				wrap += "<div class='popbutton'><button id='simplePopBtnSure'>" + opt.btitle + "</button></div>";
+			wrap += "</div>";
 		wrap += "</div>";
+
+
 		$("body").append(wrap);
 		var $popMain = $(".popMain");
-		$popMain.find('.layer_msg').addClass(opt.type + '_icon')
+		$popMain.find('.layer_img').addClass(opt.type + '_icon');//图片
+
 		var $popTitle = $(".popTitle");
 		var $popContent = $(".popContent");
 		opt.showTitle ? $popTitle.show() : $popTitle.hide();
@@ -101,6 +112,7 @@ var art = {
 
 		switch (opt.popType) {
 			case "alert":
+				//警告
 				$popMain.fadeIn(opt.duration, function() {
 					$popMain.attr("style", $popMain.attr("style").replace("FILTER:", ""))
 				});
@@ -110,6 +122,7 @@ var art = {
 				});
 				break;
 			case "dialog":
+				//对话框
 				$popMain.fadeIn(opt.duration, function() {
 					$popMain.attr("style", $popMain.attr("style").replace("FILTER:", ""))
 				});
@@ -119,6 +132,7 @@ var art = {
 				});
 				break;
 			case "confirm":
+				//确认
 				$popMain.fadeIn(opt.duration, function() {
 					$popMain.attr("style", $popMain.attr("style").replace("FILTER:", ""))
 				});
@@ -133,6 +147,7 @@ var art = {
 				});
 				break;
 			case "prompt":
+				//提示
 				$popMain.fadeIn(opt.duration, function() {
 					$popMain.attr("style", $popMain.attr("style").replace("FILTER:", ""))
 				});

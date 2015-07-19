@@ -82,7 +82,7 @@
 				return false;
 			}
 
-			is_type = validate_log(login_name, true);
+			is_type = validate.log(login_name, true);
 
 			if (is_type == false) {
 				art.alert('提示', '请使用邮箱！');
@@ -93,12 +93,12 @@
 			next_pwd = thisform.next_pwd.value;
 			
 			if (pwd.length < 6) {
-				$('#pwd_intensity').text("(客官不要玩我，低于六位密码是不会通过的。)");
+				$('#pwd_intensity').text("(密码不可低于六位)");
 				thisform.pwd.focus();
 				return false;
 			}
 			if (pwd != next_pwd) {
-				$('#next_pwd').text("(客官，两次密码都不一样，让妹子怎么办？)");
+				$('#next_pwd').text("(两次密码都不同)");
 				thisform.next_pwd.focus();
 				return false;
 			}

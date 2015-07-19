@@ -1,28 +1,20 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Home extends KC_Controller {
+class Setting extends KC_Controller {
 	public function __construct()
 	{
 		parent::__construct(TRUE, TRUE);
 	}
 
-	public function my() {
+	public function profile() {
 		if (!$this->uid) return false;
 
 		$this->load->model('user_model');
 		$user_info = $this->user_model->get_by_uid($this->uid);
-
-		//用户关注的人
-		$user_follwers = $this->user_model->get_by_uid_follwers($this->uid);
-		//关注该用户的人
-		$user_follwing = $this->user_model->get_by_uid_follwing($this->uid);
-
 		$data = array(
-			'user_info' => $user_info,
-			'user_follwers' => $user_follwers,
-			'user_follwing' => $user_follwing
+			'user_info' => $user_info
 			);
-		$this->load->view('home/my', $data);
+		$this->load->view('setting/profile', $data);
 	}
 
 	public function logout(){
