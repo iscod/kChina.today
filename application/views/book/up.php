@@ -18,10 +18,10 @@
 			book_title = thisform.book_title.value;
 			book_author = thisform.book_author.value;
 			book_commend = thisform.book_commend.value;
-			if (book_title == false) {art.alert('亲，忘记填写书名了吧！');return false};
-			if (book_author == false) {art.alert('亲，忘记填写作者了吧！');return false};
-			if (book_commend == false) {art.alert('亲，描述是必须的，写点你推荐的理由吧！');return false};
-			if (thisform.userfile.value == false) {art.alert('亲，选择上传的txt文件哦！');return false};
+			if (book_title == false) {art.dialog({content:'亲，忘记填写书名了吧！'});return false};
+			if (book_author == false) {art.dialog({content:'亲，忘记填写作者了吧！'});return false};
+			if (book_commend == false) {art.dialog({content:'亲，描述是必须的，写点你推荐的理由吧！'});return false};
+			if (thisform.userfile.value == false) {art.dialog({content:'亲，选择上传的txt文件哦！'});return false};
 
 			// $.post('/book/up_submit', {
 			// 	book_title : thisform.book_title.value,

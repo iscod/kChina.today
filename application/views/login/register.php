@@ -85,7 +85,7 @@
 			is_type = validate.log(login_name, true);
 
 			if (is_type == false) {
-				art.alert('提示', '请使用邮箱！');
+				art.dialog({content:'请使用邮箱！'});
 				return false;
 			}
 
@@ -104,9 +104,9 @@
 			}
 			$.post("/login/submit_register",{login:login_name,pwd:pwd,next_pwd:next_pwd},function(json){
 				if (parseInt(json.result) == 1) {
-					art.alert('提示', '就差一步了，到邮箱验证吧！');
+					art.dialog({content:'就差一步了，到邮箱验证吧！'});
 				}else{
-					art.alert('提示', json.msg);
+					art.dialog({content:json.msg});
 				}
 			}, 'json');
 			return false;

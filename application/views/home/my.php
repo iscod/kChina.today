@@ -28,8 +28,8 @@
 		<div class="home_inner">
 			<div class="home_news home_wrap">
 				<div class="home_wrap_head">
-					<div class="user_nickname home_wrap_head_top"><?php if ($user_info['user_nickname']): echo $user_info['user_nickname']; else: echo $user_info['user_login']; endif;?></div>
-					<div class="user_bio">，<?php echo $user_info['user_introduce']?></div>
+					<div class="user_nickname home_wrap_head_top"><?php if ($user_info['user_nickname']): echo $user_info['user_nickname']; else: echo '设置昵称'; endif;?></div>
+					<div class="user_bio">，<?php echo (isset($user_info['user_introduce']) && empty($user_info['user_introduce'])) ? $user_info['user_introduce'] : '写点介绍';?></div>
 				</div>
 				<div class="home_wrap_content">
 					<div class="user_face">
@@ -39,23 +39,23 @@
 					<div class="user_info">
 						<div class="items">
 							<div class="item editable-group">
-								<i class="icon icon_adderss"></i>
+								<i class="icon icon_adderss">地址</i>
 								<span>
-									<span class="item_span user_address"><a href="javascript:;"><?php echo $user_info['user_address']?></a></span>
+									<span class="item_span user_address"><a href="javascript:;"><?php echo (isset($user_info['user_address']) && empty($user_info['user_address'])) ? $user_info['user_address'] : '填写地址'; ?></a></span>
 									<span class="item_span user_work"><a href="javascript:;">填写职业</a></span>
 									<span class="item_span user_gender"><i class="icon icon_gender_man"></i></span>
 								</span>
 							</div>
 							<div class="item editable-group">
-								<i class="icon icon_company"></i>
+								<i class="icon icon_company">公司</i>
 								</span><a href="javascript:;"><?php echo (isset($user_info['user_company'])) ? $user_info['user_company'] : '填写公司' ?></a></span>
 							</div>
 							<div class="item editable-group">
-								<i class="icon icon_education"></i>
+								<i class="icon icon_education">学校</i>
 								</span><a href="javascript:;"><?php echo (isset($user_info['user_school'])) ? $user_info['user_school'] : '填写教育' ?></a></span>
 							</div>
 						</div>
-						<div class="user_description"><?php echo $user_info['user_profile'];?></div>
+						<div class="user_description"><?php echo (isset($user_info['user_profile']) && empty($user_info['user_profile'])) ? $user_info['user_profile'] : '一句对生活态度';?></div>
 					</div>
 					<div class="home_footer" style="clear: both;"></div>
 					
@@ -94,7 +94,10 @@
 			</div>
 		</div>
 		<div class="home_inner_right">
-			<div class="home_focus"><a href="home/focus_on">关注者<span class="focus_num"><?php echo count($user_follwers)?></span>人</a><a href="/be_focus">被关注<span class="focus_num"><?php echo count($user_follwing)?>人</span></a></div>
+			<div class="home_focus">
+				<a href="home/focus_on">关注者<span class="focus_num"><?php echo (is_array($user_follwers)) ? count($user_follwers) : 0 ; ?></span>人</a>
+				<a href="/be_focus">被关注<span class="focus_num"><?php echo (is_array($user_follwing)) ? count($user_follwing) : 0;?>人</span></a>
+			</div>
 			<div class="home_focus_book focus_inner">关注了<span class="focus_num">10</span>本书</div>
 			<div class="home_focus_shoot focus_inner">关注了<span class="focus_num">10</span>摄像</div>
 			<div class="focus_kc">

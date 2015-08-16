@@ -1,5 +1,5 @@
 body,html {
-	font: 14px Helvetica,Arial,sans-serif;
+	font: 14px sans-serif,Helvetica,Arial;
 	line-height: 1.62;
 	margin: 0;
 	padding: 0;
@@ -39,6 +39,7 @@ h1 a:hover{
 	color: #008448;
 	background: #fff;
 	text-decoration: none;
+	background: none;
 }
 a:active {
 	text-decoration: none;
@@ -448,10 +449,10 @@ label.login_error, label.pwd_error{
 }
 .popContent .popbutton button {
 	cursor: pointer;
-	padding: 5px 15px;
+	padding: 3px 10px;
 	background-color: #1e8cbe;
 	color: #fff;
-	margin-left: 20px;
+	margin-left: 10px;
 	border: 1px solid #0074a2;
 }
 .popContent .popbutton button:hover {
@@ -469,6 +470,8 @@ label.login_error, label.pwd_error{
 	background: url(/image/icon.png) no-repeat;
 	background-size: 308px 250px;
 	display: inline-block;
+	line-height: 10em;
+  	overflow: hidden;
 }
 .icon_adderss {
 	background-position: -57px -110px;

@@ -69,7 +69,7 @@ class Login extends KC_Controller {
 		$user_pass = $this->user_model->get_pass_by_uid($uid);
 
 		if (!$user_pass) {
-			echo json_return(RESPONSE_LOGIN, '');
+			echo json_return(RESPONSE_LOGIN, '数据错误');
 			return false;
 		}
 
@@ -110,7 +110,7 @@ class Login extends KC_Controller {
 
 		// var_dump($pwd);
 		if (preg_match("/^[a-zA-z]+[ ]/", $pwd)) {
-			echo json_return(RESPONSE_ERROR, '密码中使用空格，这想法不错，but，不会记录到数据库的。');
+			echo json_return(RESPONSE_ERROR, '密码中包含空格，这想法不错，but，不会记录到数据库的。');
 			return false;
 		}
 
@@ -127,7 +127,7 @@ class Login extends KC_Controller {
 		$this->load->model('user_model');
 		$is_user = $this->user_model->get_by_email($email);
 		if ($is_user) {
-			echo json_return(RESPONSE_ERROR, '叔叔，这个邮箱已经存在，妹子已经使用这个账号了。');
+			echo json_return(RESPONSE_ERROR, '邮箱已经已存在。');
 			return false;
 		}
 

@@ -57,9 +57,9 @@ var validate  = {
 
 function kc_login_form(thisform, type){
 
-	if (type === undefined ) {art.alert('提示', '数据错误')};
+	if (type === undefined ) {art.dialog({content: '数据错误'})};
 
-	is_type = validate.log(thisform.login.value);
+	is_type = $.trim(validate.log(thisform.login.value));
 
 	if (is_type == false) {
 		validate.error('login' , "邮箱错误", type);
@@ -67,7 +67,7 @@ function kc_login_form(thisform, type){
 		return false;
 	}
 
-	is_pwd = validate.pwd(thisform.pwd.value);
+	is_pwd = $.trim(validate.pwd(thisform.pwd.value));
 
 	if(is_pwd == false) {
 		validate.error('pwd' , "密码错误", type);
@@ -76,13 +76,15 @@ function kc_login_form(thisform, type){
 	}
 
 	if (is_type && is_pwd) {
+		$(thisform[name='submit']).attr('disabled','disabled');
 		$.post("login/kc_login",
 		{
-			login:thisform.login.value,
-			pwd:thisform.pwd.value,
-			redirect_to:thisform.redirect_to.value
+			login:$.trim(thisform.login.value),
+			pwd:$.trim(thisform.pwd.value),
+			redirect_to:$.trim(thisform.redirect_to.value)
 		},
 		function(json) {
+			$(thisform[name='submit']).removeAttr('disabled');
 			if (json.result == 1) {
 				if (thisform.redirect_to == 'undefined') {
 					thisform.redirect_to = '/';
@@ -93,7 +95,7 @@ function kc_login_form(thisform, type){
 			} else if(json.result == -3){
 				$(".login_input").append(validate.error('pwd' ,json.msg, type));
 			} else {
-				art.alert(json.msg);
+				art.dialog({content:json.msg});
 			}
 		}, 'json');
 		return false;
@@ -102,8 +104,7 @@ function kc_login_form(thisform, type){
 }
 $(function(){
 	$('.header_user').hover(function(){
-		$(".js_login_wrpe").show();
-	}, function(){
-		$(".js_login_wrpe").hide();
+		$(".js_login_wrpe").toggle();
+		
 	})
 })

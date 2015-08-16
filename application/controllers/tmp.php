@@ -6,9 +6,5 @@ class Tmp extends KC_Controller {
 	{
 		parent::__construct(TRUE, FALSE);
 	}
-	public function index() {
 
-		$this->load->view('tmp');
-
-	}
 }

@@ -14,7 +14,7 @@
 		<div class="srh"></div>
 	<?php if($this->uid): ?>
 		<div class="header_user">
-			<span class="user_name"><?php echo $user_info['user_login']?></span>
+			<span class="user_name"><?php echo ($user_info['user_nickname']) ? $user_info['user_nickname'] : '设置'?></span>
 			<div class="js_login_wrpe">
 				<ul>
 					<li><a href="/home/my" target="_blank">我的主页</a></li>

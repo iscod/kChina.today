@@ -1,49 +1,53 @@
 /**
-*alert for kc
-*请尽量少使用弹窗这种交互方式
+ *alert for kc
+ *请尽量少使用弹窗这种交互方式
 */
 var art = {
-	alert : function(title, msg, btitle, info) {
-		var alertDefaults = {
-			popType: 'alert',
-			title: title,
-			content: (msg === undefined ? "" :msg),
-			btitle: (btitle === undefined ? "确定": btitle),
-			info: (info === undefined ? "info" : info)
-		}
-		var opt = $.extend({}, this._defaults, alertDefaults);
-		this._creatLayer(opt)
+	dialog : function (config) {
+		this.config = config;
+		var opt = $.extend({}, this._defaults, this.config);
+		this._creatLayer(opt);
 	},
-	dialog : function (title, msg, arg, btitle){
-		if (btitle == null || btitle == undefined) {
-			btitle = '确定';
-		}
-		var alertDefaults = {
-			popType: 'dialog',
-			title: title,
-			content: '<div class="layer_msg"><p>' + (msg === undefined ? "" :msg) + '</p><button id="simplePopBtnSure">' + btitle + '</button></div>',
-			callback : arg
-		}
-		var opt = $.extend({}, this._defaults, alertDefaults,arg);
-		this._creatLayer(opt)
-	},
-
+	//默认参数
 	_defaults: {
-		icon: "",
-		title: "",
-		content: "",
+		type: null, //消息标题图标
+		title: "确定", //标题默认提示
+		icon: "info", //消息图标
+		content: "", //消息内容
+		okval: '确定', //确认按钮文本
+		cancelval: '取消', //取消按钮文本
+		ok: null, //确认按钮回调函数
+		close: null, //取消按钮回调函数
 		width: 0,
 		height: 0,
-		background: "#000",
-		opacity: 0.3,
-		duration: "normal",
+		background: "#000", //背景颜色
+		opacity: 0.3, //背景透明度
+		duration: "normal", 
 		showTitle: true,
 		escClose: true,
 		popMaskClose: false,
-		drag: true,
+		drag: true, //是否允许用户拖动文字
 		dragOpacity: 1,
-		popType: "alert",
-		type: "info"
+		popType: "alert", //采取的方式默认是警告窗
+	},
+	//获取样式
+	_defaultHtml : function (opt) {
+		//弹窗的基本样式
+		var wrap = "<div class='popMain'>";
+		wrap += "<div class='popTitle'>"
+			+ (opt.type !== null && opt.type !== "" ? "<img class='icon' src='" +opt.type + "' />" : "");
+			wrap += "<span class='text'>" + opt.title + "</span><span class='close'>&times;</span></div>"
+			wrap += "<div class='popContent'>";
+			wrap += "<div class='layer_img'></div>";
+			wrap += "<div class='layer_msg'><p>" + opt.content + "</p></div>";
+			wrap += "<div class='popbutton'><button id='simplePopBtnSure'>" + opt.okval + "</button>";
+				if (opt.popType == 'confirm') {
+					wrap += '<button id="SimplePopBtncancel">' + opt.cancelval + "</button>";
+				}
+			wrap += "</div>";
+			wrap += "</div>";
+		wrap += "</div>";
+		return wrap;
 	},
 	_creatLayer : function (opt) {
 		var self = this;
@@ -71,20 +75,11 @@ var art = {
 		$mask.fadeIn(opt.duration);
 
 		//弹窗的基本样式
-		var wrap = "<div class='popMain'>";
-		wrap += "<div class='popTitle'>" + (opt.icon !== undefined && opt.icon !== "" ? "<img class='icon' src='" +
-			opt.icon + "' />" : "") + "<span class='text'>" + opt.title + "</span><span class='close'>&times;</span></div>";
-			wrap += "<div class='popContent'>";
-				wrap += "<div class='layer_img'></div>";
-				wrap += "<div class='layer_msg'><p>" + opt.content + "</p></div>";
-				wrap += "<div class='popbutton'><button id='simplePopBtnSure'>" + opt.btitle + "</button></div>";
-			wrap += "</div>";
-		wrap += "</div>";
-
+		var wrap = self._defaultHtml(opt);
 
 		$("body").append(wrap);
 		var $popMain = $(".popMain");
-		$popMain.find('.layer_img').addClass(opt.type + '_icon');//图片
+		$popMain.find('.layer_img').addClass(opt.icon + '_icon');//图片
 
 		var $popTitle = $(".popTitle");
 		var $popContent = $(".popContent");
@@ -117,8 +112,10 @@ var art = {
 					$popMain.attr("style", $popMain.attr("style").replace("FILTER:", ""))
 				});
 				$("#simplePopBtnSure").bind("click", function() {
-					// opt.callback();
 					self._closeLayer()
+					if (opt.ok != null && opt.ok != '') {
+						opt.ok();
+					}
 				});
 				break;
 			case "dialog":
@@ -138,12 +135,17 @@ var art = {
 				});
 				$("#simplePopBtnSure").bind("click",
 					function() {
-						opt.confirm()
 						self._closeLayer()
+						if (opt.ok != null && typeof(opt.ok) == 'function') {
+							opt.ok();
+						}
 					});
 				$("#SimplePopBtncancel").bind("click", function() {
-					opt.cancel()
 					self._closeLayer()
+					if (opt.close != null && typeof(opt.close) == 'function') {
+						opt.close();
+					}
+					
 				});
 				break;
 			case "prompt":
