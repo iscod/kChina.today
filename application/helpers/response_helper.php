@@ -5,8 +5,8 @@ if(!defined('RESPONSE_OK')) define('RESPONSE_OK', 1);
 if(!defined('RESPONSE_ERROR')) define('RESPONSE_ERROR', -1);
 if(!defined('RESPONSE_LOGIN')) define('RESPONSE_LOGIN', -2);
 if(!defined('RESPONSE_PASS_ERROR')) define('RESPONSE_PASS_ERROR', -3);
-
-
+//需要登陆
+if (!defined('RESPONSE_UN_LOGIN')) define('RESPONSE_UN_LOGIN', -99);
 
 if(!function_exists('json_return')) {
 	function json_return($return_code = RESPONSE_SYSTEM_BUSY, $msg = '', $data = array()){

@@ -62,6 +62,7 @@ class Book extends KC_Controller {
 		$bookid = intval($bookid);
 		$this->load->model('book_model');
 		$book_info = $this->book_model->get_by_bookid($bookid);
+
 		$data = array(
 			'bookid' => $bookid,
 			'book_info' => $book_info,

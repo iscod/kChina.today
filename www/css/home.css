@@ -1,16 +1,16 @@
-.home_content{
+.home_content, .people_content{
 	max-width: 960px;
 	margin: auto;
 }
-.home_inner{
-	max-width: 60%;
+.home_inner, .people_inner{
+	max-width: 65%;
 	float: left;
 	margin-bottom: 20px;
 }
 .focus_num{
 	margin: 0px 2px;
 }
-.home_wrap{
+.home_wrap, .pepole_wrap{
 	min-height: 160px;
 	margin-top: 40px; 
 	border: 1px double #D7D7D7;
@@ -54,11 +54,6 @@
 	height: 110px;
 	overflow: hidden;
 	float: left;
-}
-.user_face img{
-	width: 110px;
-  	height: 110px;
-	border: 0 none;
 	border-radius: 4px;
 }
 .user_face .kc-face-edit-button{
@@ -80,13 +75,38 @@
 .home_wrap_content .user_info .item{
 	margin-bottom: 5px;
 }
+.home_wrap_content .edit{
+	display: none;
+	background: #F5F4F4;
+	padding: 2px 5px 2px 0;
+	border-radius: 4px;
+}
+.home_wrap_content a.edit:hover{
+	background: #EAEAEA;
+	padding: 2px 5px 2px 0;
+}
+.home_wrap_content .zu-edit-button-icon{
+	background-position: -118px -50px;
+    height: 12px;
+    margin-right: 4px;
+    outline: medium none;
+    overflow: hidden;
+    width: 12px;
+    vertical-align: -3px;
+}
 .home_wrap_content .item .icon {
 	margin-right: 6px;
 }
-.home_inner_right{
+.home_inner_right, .people_inner_right{
 	margin-top: 40px;
-	max-width: 35%;
+	max-width: 30%;
 	float: right;
+}
+.home_inner_right .kc_login, .people_inner_right .kc_login{
+	background: #F5F5F5;
+    padding: 5px 10px;
+    border-radius: 4px;
+    color: #666;
 }
 .home_wrap_content a{
 	color: #666;
@@ -117,4 +137,12 @@
 }
 .focus_kc div{
 	cursor: pointer;
+}
+
+/*关注按钮样式*/
+.follow_btn{
+	color: #458790;
+}
+.follow_un_btn{
+	color: #666;
 }

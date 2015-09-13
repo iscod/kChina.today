@@ -69,14 +69,14 @@ class Dbclass {
 		return $server;
 	}
 
-	public static function usersfocus($uid){
+	public static function usersfollower($uid){
 		$host_config = self::$user_host;
 		if (!isset($host_config['user'])) $host_config['user'] = self::$user;
 		if (!isset($host_config['pwd'])) $host_config['pwd'] = self::$pwd;
 		if (!isset($host_config['port'])) $host_config['port'] = self::$port;
 		if (!isset($host_config['database'])) $host_config['database'] = self::$database;
 
-		$host_config['table'] = 'kc_usersfocus';
+		$host_config['table'] = 'kc_follower';
 
 		$server = $host_config;
 
@@ -84,7 +84,7 @@ class Dbclass {
 		return $server;
 	}
 
-	public static function book($boodid = false) {
+	public static function book($boodid = false){
 		$host_config = self::$book_host;
 
 		$host_config['database'] = 'kc_book';
@@ -93,6 +93,57 @@ class Dbclass {
 		if (!isset($host_config['pwd'])) $host_config['pwd'] = self::$pwd;
 		if (!isset($host_config['port'])) $host_config['port'] = self::$port;
 		if (!isset($host_config['database'])) $host_config['database'] = self::$database;
+
+		$server = $host_config;
+
+		$server['dsn'] = 'mysql://' . $host_config['user'] . ':' . $host_config['pwd'] . '@' . $host_config['host'] . '/' . $host_config['database'] . '?port=' . $host_config['port'];
+		return $server;
+	}
+
+	public static function bookrelat($bookid = false){
+		$host_config = self::$book_host;
+
+		$host_config['database'] = 'kc_book';
+
+		if (!isset($host_config['user'])) $host_config['user'] = self::$user;
+		if (!isset($host_config['pwd'])) $host_config['pwd'] = self::$pwd;
+		if (!isset($host_config['port'])) $host_config['port'] = self::$port;
+		if (!isset($host_config['database'])) $host_config['database'] = self::$database;
+
+		$host_config['table'] = 'kc_book_relat';
+
+		$server = $host_config;
+
+		$server['dsn'] = 'mysql://' . $host_config['user'] . ':' . $host_config['pwd'] . '@' . $host_config['host'] . '/' . $host_config['database'] . '?port=' . $host_config['port'];
+		return $server;
+	}
+
+	public static function bookterm($termid = false){
+		$host_config = self::$book_host;
+
+		$host_config['database'] = 'kc_book';
+
+		if (!isset($host_config['user'])) $host_config['user'] = self::$user;
+		if (!isset($host_config['pwd'])) $host_config['pwd'] = self::$pwd;
+		if (!isset($host_config['port'])) $host_config['port'] = self::$port;
+		if (!isset($host_config['database'])) $host_config['database'] = self::$database;
+
+		$host_config['table'] = 'kc_book_terms';
+
+		$server = $host_config;
+
+		$server['dsn'] = 'mysql://' . $host_config['user'] . ':' . $host_config['pwd'] . '@' . $host_config['host'] . '/' . $host_config['database'] . '?port=' . $host_config['port'];
+		return $server;
+	}
+
+	public static function bookfocus($boodid = false){
+		$host_config = self::$user_host;
+		if (!isset($host_config['user'])) $host_config['user'] = self::$user;
+		if (!isset($host_config['pwd'])) $host_config['pwd'] = self::$pwd;
+		if (!isset($host_config['port'])) $host_config['port'] = self::$port;
+		if (!isset($host_config['database'])) $host_config['database'] = self::$database;
+
+		$host_config['table'] = 'kc_bookfocus';
 
 		$server = $host_config;
 

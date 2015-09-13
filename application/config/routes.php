@@ -41,6 +41,10 @@
 $route['default_controller'] = "welcome";
 $route['404_override'] = '';
 
+$route['people/(:any)/on_focus'] ='people/on_focus/$1';
+$route['people/(:any)/be_focus'] = 'people/be_focus/$1';
+$route['people/(:any)'] = 'people/home/$1';
+
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

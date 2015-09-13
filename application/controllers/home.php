@@ -13,9 +13,9 @@ class Home extends KC_Controller {
 		$user_info = $this->user_model->get_by_uid($this->uid);
 
 		//用户关注的人
-		$user_follwers = $this->user_model->get_by_uid_follwers($this->uid);
+		$user_follwers = $this->user_model->get_by_uid_followers($this->uid);
 		//关注该用户的人
-		$user_follwing = $this->user_model->get_by_uid_follwing($this->uid);
+		$user_follwing = $this->user_model->get_by_uid_for_followers($this->uid);
 
 		$data = array(
 			'user_info' => $user_info,

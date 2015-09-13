@@ -488,3 +488,27 @@ label.login_error, label.pwd_error{
 .icon_gender_woman {
 	background-position: -144px -110px;
 }
+.icon_author {
+background-position: -150px -45px;
+}
+.icon_time {
+	background-position: -191px -45px;
+}
+.icon_star {
+	background-position: -105px -48px;
+}
+.icon_heat {
+	background-position: -249px -25px;
+}
+.icon_agree {
+	background-position: -217px -76px;
+	margin-bottom: 4px;
+}
+.icon_un_agree {
+	background-position: -217px -92px;
+}
+.icon_home {
+	background-position: -149px -165px;
+	height: 19px;
+	width: 18px;
+}

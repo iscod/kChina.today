@@ -77,7 +77,7 @@ function kc_login_form(thisform, type){
 
 	if (is_type && is_pwd) {
 		$(thisform[name='submit']).attr('disabled','disabled');
-		$.post("login/kc_login",
+		$.post("/login/kc_login",
 		{
 			login:$.trim(thisform.login.value),
 			pwd:$.trim(thisform.pwd.value),

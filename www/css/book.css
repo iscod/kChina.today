@@ -2,43 +2,91 @@
 	margin: 40px auto;
 	padding: 0 10px;
 	max-width: 950px;
+}	
+.book_inner {
+	max-width: 65%;
+	min-width: 60%;
+    float: left;
+    margin-bottom: 20px;
 }
-.book {
+.book_wrap {
+	min-height: 160px;
+    margin-top: 40px;
+    border: 1px double #D7D7D7;
+    border-radius: 4px;
+    color: #666;
+}
+.book_wrap_header, .book_discuss_header {
+	border-bottom: 1px double #D7D7D7;
+}
+.book_title{
+	display: inline-block;
+	border-bottom-width:0; 
+}
+.book_commend, .discuss_title{
+	display: inline-block;
+	font-size:12px;
+}
+.book_wrap_content{
+	padding: 10px 16px;
+}
+.book_wrap_footer{
+	background-color: #fcfcfc;
+    border-top: 1px solid #ddd;
+    box-shadow: 0 2px 2px #f0f0f0 inset;
+    border-radius: 0 0 4px 4px;
+}
+.book_wrap_footer .hide-text{
+	font-size: 0px;
+}
+.book_wrap_footer .item_home{
+	border-right: 1px double #D7D7D7;
+}
+.book_wrap_footer .item_home:hover{
+	background: #f0f0f0;
+}
+.book_wrap_footer .item{
+	display: inline-block;
+	padding: 15px 20px;
+}
+.book_wrap_footer .item .icon{
+	margin: 0 10px;
+}
+.book_discuss_footer{
+	border-top: 1px double #D7D7D7;
+}
+.book_discuss_header, .book_discuss_footer{
+	padding: 5px 10px;
+}
+.book_wrap_face{
+	width: 110px;
+    height: 110px;
+    overflow: hidden;
+    border-radius: 10px;
+    float: left;
+}
+.book_info{
+	margin: 0px 10px 0 126px;
+    font-size: 13px;
+}
+.book_intr{
+	margin: 10px;
+	padding-top: 10px;
+	color: #666;
+	font-size: 12px;
+	border-top: 1px dotted #eee;
+}
+.book_info .icon{
+	margin-right: 6px;
+}
+.item_home{
 	float: left;
-	max-width: 60%;
+    padding: 12px 20px;
+    font-weight: 700;
+    color: #666;
+    text-align: center;
+    font-size: 14px;
+    text-decoration: none;
+    line-height: 22px;
+    font-size: 0;
 }
-.book_title {
-	border-bottom: 1px dotted #A0A0A0;
-}
-.book_img {
-	  float: right;
-}
-/*book index*/
-.section {
-	color: #0D0D0D;
-}
-.content_book {
-	margin: 0 auto;
-	max-width: 960px;
-	font-size: 14px;
-	/*text-align: right;*/
-}
-.section:nth-child(2n) .book_box {
-	float: right;
-	text-align: right;
-}
-.content_book .book_box{
-	width: 30%;
-	padding: 10px 20px;
-	filter:alpha(opacity=40);
-	background: #fff;
-	background: rgba(255, 255, 255, 0.4);
-	border-radius: 3% 3%;
-}
-.content_book .booktitle {
-	font-size: 24px;
-	line-height: 3em;
-}
-.content_book .booknew {
-}
-/*book index*/

@@ -18,8 +18,17 @@
 			}, function(){
 				$(".kc-face-edit-button").hide();
 			})
+			$('.editable-group').hover(function(){
+				$(this).find('.edit').toggle();
+			})
+			$('.zu-edit-button').click(function(){
+				alert('正在开发中！');
+			})
 		})
 	</script>
+	<style type="text/css">
+
+	</style>
 </head>
 </head>
 <body class="kc">
@@ -45,17 +54,20 @@
 									<span class="item_span user_work"><a href="javascript:;">填写职业</a></span>
 									<span class="item_span user_gender"><i class="icon icon_gender_man"></i></span>
 								</span>
+								<a class="zu-edit-button edit" name="edit" href="javascript:;"><i class="zu-edit-button-icon icon"></i><span class="edit-msg">修改</span></a>
 							</div>
 							<div class="item editable-group">
 								<i class="icon icon_company">公司</i>
 								</span><a href="javascript:;"><?php echo (isset($user_info['user_company'])) ? $user_info['user_company'] : '填写公司' ?></a></span>
+								<a class="zu-edit-button edit" name="edit" href="javascript:;"><i class="zu-edit-button-icon icon"></i><span class="edit-msg">修改</span></a>
 							</div>
 							<div class="item editable-group">
 								<i class="icon icon_education">学校</i>
 								</span><a href="javascript:;"><?php echo (isset($user_info['user_school'])) ? $user_info['user_school'] : '填写教育' ?></a></span>
+								<a class="zu-edit-button edit" name="edit" href="javascript:;"><i class="zu-edit-button-icon icon"></i><span class="edit-msg">修改</span></a>
 							</div>
 						</div>
-						<div class="user_description"><?php echo (isset($user_info['user_profile']) && empty($user_info['user_profile'])) ? $user_info['user_profile'] : '一句对生活态度';?></div>
+						<div class="item editable-group"><?php echo (isset($user_info['user_profile']) && empty($user_info['user_profile'])) ? $user_info['user_profile'] : '一句对生活态度';?><a class="zu-edit-button edit" name="edit" href="javascript:;"><i class="zu-edit-button-icon icon"></i><span class="edit-msg">修改</span></a></div>
 					</div>
 					<div class="home_footer" style="clear: both;"></div>
 					
@@ -93,19 +105,7 @@
 				</div>	
 			</div>
 		</div>
-		<div class="home_inner_right">
-			<div class="home_focus">
-				<a href="home/focus_on">关注者<span class="focus_num"><?php echo (is_array($user_follwers)) ? count($user_follwers) : 0 ; ?></span>人</a>
-				<a href="/be_focus">被关注<span class="focus_num"><?php echo (is_array($user_follwing)) ? count($user_follwing) : 0;?>人</span></a>
-			</div>
-			<div class="home_focus_book focus_inner">关注了<span class="focus_num">10</span>本书</div>
-			<div class="home_focus_shoot focus_inner">关注了<span class="focus_num">10</span>摄像</div>
-			<div class="focus_kc">
-				<div onclick="focus_kc_weibo()">@kchina</div>
-				<div onclick="focus_kc()">关注kc</div>
-			</div>
-		</div>
-
+		<?php $this->load->view('/home/inner_right') ?>
 	</div>
 	<?php $this->load->view('footer')?>
 </body>

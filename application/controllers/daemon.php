@@ -44,9 +44,7 @@ class Daemon extends KC_Controller {
 	private function _load_donate() {
 		return false;
 	}
-	public function x() {
-		echo 'x';
-	}
+
 	public function start_server(){
 		//创建一个套接字
 		$this->socket = socket_create(AF_INET, SOCK_STERAM, SOL_TCP);
